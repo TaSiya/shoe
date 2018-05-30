@@ -29,13 +29,13 @@ describe('Shoe Catalogue application Tests', function(){
       ];
       search.inStock(stock); //assign the list to the stock or map of the shoes
       it('brand : amateki color: black size :6', function(){
-         assert.deepEqual(search.searchShoe('amateki', 'black', 6), [{brand : 'amateki',color : 'black',size : 6,in_stock : 15}]);
+         assert.deepEqual(search.searchShoe('amateki', 'black', 6), {brand : 'amateki',color : 'black',size : 6,in_stock : 15});
       });//search 1
       it('brand :adidas color :red size :8', function(){
-         assert.deepEqual(search.searchShoe('adidas','red',8),[]);
+         assert.deepEqual(search.searchShoe('adidas','red',8),{});
       });//search 2
       it('brand :China teki color :pink size :4', function(){
-         assert.deepEqual(search.searchShoe('chine teki','pink',4),[{brand : 'china teki',color : 'pink',size  : 4,in_stock : 5}]);
+         assert.deepEqual(search.searchShoe('chine teki','pink',4),{brand : 'china teki',color : 'pink',size  : 4,in_stock : 5});
       });//search 3
    });//search for a shoe
    describe('search for all shoe with (NAME)', function(){
@@ -129,7 +129,7 @@ describe('Shoe Catalogue application Tests', function(){
       it('Adding in empty stock', function(){
          var stock1 = [];
          addStock.inStock(stock1);
-         addStock.addingStock('puma','silver',4,2); // adding the stock with the function with key addingStock takes in 4 parameters
+         addStock.addingStock('puma','silver', 4, 2); // adding the stock with the function with key addingStock takes in 4 parameters
          addStock.addingStock('jet','blue',4); // addingStock takes in 3 parameters (no stock)
          assert.equal(addStock.stockShoes(),
          [

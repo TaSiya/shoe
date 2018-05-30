@@ -1,5 +1,5 @@
 describe('Shoe Catalogue application Tests', function(){
-   describe('search for a shoe', function(){
+   describe('search for a single stock shoe', function(){
       var search = ShoeCatalogue();
       var stock = [
          {
@@ -125,4 +125,91 @@ describe('Shoe Catalogue application Tests', function(){
          ]);
       });
    });//Adding a new stock
+   describe('search for all shoe with (NAME)', function(){
+      var search2 = ShoeCatalogue();
+      var stock3 = [
+         {
+            brand : 'amateki',
+            color : 'red',
+            size  : 6,
+            in_stock : 5
+         },
+         {
+            brand : 'vovo',
+            color : 'orange',
+            size  : 5,
+            in_stock : 9
+         },
+         {
+            brand : 'amateki',
+            color : 'white',
+            size  : 4,
+            in_stock : 13
+         },
+         {
+            brand : 'china teki',
+            color : 'purple',
+            size  : 7,
+            in_stock : 4
+         },
+         {
+            brand : 'china teki',
+            color : 'yellow',
+            size  : 5,
+            in_stock : 8
+         },
+         {
+            brand : 'amateki',
+            color : 'black',
+            size  : 4,
+            in_stock : 7
+         }
+      ];
+      search2.inStock(stock3);
+      it('search for all (amateki) shoe', function(){
+         assert.equal(search2.searchAll('amateki'),
+            [
+               {
+                  brand : 'amateki',
+                  color : 'red',
+                  size  : 6,
+                  in_stock : 5
+               },
+               {
+                  brand : 'amateki',
+                  color : 'white',
+                  size  : 4,
+                  in_stock : 13
+               },
+               {
+                  brand : 'amateki',
+                  color : 'black',
+                  size  : 4,
+                  in_stock : 7
+               }
+            ]
+         );
+      });//search 2.1
+      it('search for all puma', function(){
+         assert.equal(search2.searchAll('puma'),[]);
+      });// search 2.2
+      it('search for all puma', function(){
+         assert.equal(search2.searchAll('china teki'),
+         [
+            {
+               brand : 'china teki',
+               color : 'purple',
+               size  : 7,
+               in_stock : 4
+            },
+            {
+               brand : 'china teki',
+               color : 'purple',
+               size  : 7,
+               in_stock : 14
+            }
+         ]);
+      });// search 2.3
+   });//search for all shoe with (NAME)
+   
 });//End of application test

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <meta name="description" content="Test page for the shoe catalogue application">
+   <meta name="keywords" content="test shoe catalogue, shoe catalogue">
+   <meta name="author" content="Siyanda Makhalima">
+
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js" charset="utf-8"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.min.js"></script>
+
+   <title>Shoe Catalogue test</title>
+</head>
+
+<body>
+   <div id="mocha"></div>
+   <script>
+      mocha.setup('bdd');
+      var assert = chai.assert;
+   </script>
+
+   <script src='js/shoe-catalogue.js'></script>
+   <script src='test/shoe-catalogue.test.js'></script>
+
+   <script>
+      mocha.checkLeaks();
+      mocha.run();
+   </script>
+</body>
+</html>

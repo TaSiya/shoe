@@ -211,5 +211,55 @@ describe('Shoe Catalogue application Tests', function(){
          ]);
       });// search 2.3
    });//search for all shoe with (NAME)
-   
+   describe('Add all total stock shoes with (NAME)',function(){
+      var total = ShoeCatalogue();
+      var stock4 = [
+         {
+            brand : 'amateki',
+            color : 'red',
+            size  : 6,
+            in_stock : 5
+         },
+         {
+            brand : 'vovo',
+            color : 'orange',
+            size  : 5,
+            in_stock : 9
+         },
+         {
+            brand : 'amateki',
+            color : 'white',
+            size  : 4,
+            in_stock : 13
+         },
+         {
+            brand : 'china teki',
+            color : 'purple',
+            size  : 7,
+            in_stock : 4
+         },
+         {
+            brand : 'china teki',
+            color : 'yellow',
+            size  : 5,
+            in_stock : 8
+         },
+         {
+            brand : 'amateki',
+            color : 'black',
+            size  : 4,
+            in_stock : 7
+         }
+      ];
+      total.inStock(stock4);
+      it('Total stock for (amateki)', function(){
+         assert.equal(total.totalStock('amateki'),25);
+      });// total 1
+      it('Total stock for (amateki)', function(){
+         assert.equal(total.totalStock('china teki'),12);
+      });// total 2
+      it('Total stock for (amateki)', function(){
+         assert.equal(total.totalStock('vovo'),9);
+      });// total 3
+   });
 });//End of application test

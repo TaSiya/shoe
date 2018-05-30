@@ -38,6 +38,92 @@ describe('Shoe Catalogue application Tests', function(){
          assert.deepEqual(search.searchShoe('chine teki','pink',4),[{brand : 'china teki',color : 'pink',size  : 4,in_stock : 5}]);
       });//search 3
    });//search for a shoe
+   describe('search for all shoe with (NAME)', function(){
+      var search2 = ShoeCatalogue();
+      var stock3 = [
+         {
+            brand : 'amateki',
+            color : 'red',
+            size  : 6,
+            in_stock : 5
+         },
+         {
+            brand : 'vovo',
+            color : 'orange',
+            size  : 5,
+            in_stock : 9
+         },
+         {
+            brand : 'amateki',
+            color : 'white',
+            size  : 4,
+            in_stock : 13
+         },
+         {
+            brand : 'china teki',
+            color : 'purple',
+            size  : 7,
+            in_stock : 4
+         },
+         {
+            brand : 'china teki',
+            color : 'yellow',
+            size  : 5,
+            in_stock : 8
+         },
+         {
+            brand : 'amateki',
+            color : 'black',
+            size  : 4,
+            in_stock : 7
+         }
+      ];
+      search2.inStock(stock3);
+      it('search for all (amateki) shoe', function(){
+         assert.equal(search2.searchAll('amateki'),
+            [
+               {
+                  brand : 'amateki',
+                  color : 'red',
+                  size  : 6,
+                  in_stock : 5
+               },
+               {
+                  brand : 'amateki',
+                  color : 'white',
+                  size  : 4,
+                  in_stock : 13
+               },
+               {
+                  brand : 'amateki',
+                  color : 'black',
+                  size  : 4,
+                  in_stock : 7
+               }
+            ]
+         );
+      });//search 2.1
+      it('search for all puma', function(){
+         assert.equal(search2.searchAll('puma'),[]);
+      });// search 2.2
+      it('search for all puma', function(){
+         assert.equal(search2.searchAll('china teki'),
+         [
+            {
+               brand : 'china teki',
+               color : 'purple',
+               size  : 7,
+               in_stock : 4
+            },
+            {
+               brand : 'china teki',
+               color : 'purple',
+               size  : 7,
+               in_stock : 14
+            }
+         ]);
+      });// search 2.3
+   });//search for all shoe with (NAME)
    describe('Adding a new stock', function(){
       var addStock = ShoeCatalogue();
       it('Adding in empty stock', function(){
@@ -125,92 +211,6 @@ describe('Shoe Catalogue application Tests', function(){
          ]);
       });
    });//Adding a new stock
-   describe('search for all shoe with (NAME)', function(){
-      var search2 = ShoeCatalogue();
-      var stock3 = [
-         {
-            brand : 'amateki',
-            color : 'red',
-            size  : 6,
-            in_stock : 5
-         },
-         {
-            brand : 'vovo',
-            color : 'orange',
-            size  : 5,
-            in_stock : 9
-         },
-         {
-            brand : 'amateki',
-            color : 'white',
-            size  : 4,
-            in_stock : 13
-         },
-         {
-            brand : 'china teki',
-            color : 'purple',
-            size  : 7,
-            in_stock : 4
-         },
-         {
-            brand : 'china teki',
-            color : 'yellow',
-            size  : 5,
-            in_stock : 8
-         },
-         {
-            brand : 'amateki',
-            color : 'black',
-            size  : 4,
-            in_stock : 7
-         }
-      ];
-      search2.inStock(stock3);
-      it('search for all (amateki) shoe', function(){
-         assert.equal(search2.searchAll('amateki'),
-            [
-               {
-                  brand : 'amateki',
-                  color : 'red',
-                  size  : 6,
-                  in_stock : 5
-               },
-               {
-                  brand : 'amateki',
-                  color : 'white',
-                  size  : 4,
-                  in_stock : 13
-               },
-               {
-                  brand : 'amateki',
-                  color : 'black',
-                  size  : 4,
-                  in_stock : 7
-               }
-            ]
-         );
-      });//search 2.1
-      it('search for all puma', function(){
-         assert.equal(search2.searchAll('puma'),[]);
-      });// search 2.2
-      it('search for all puma', function(){
-         assert.equal(search2.searchAll('china teki'),
-         [
-            {
-               brand : 'china teki',
-               color : 'purple',
-               size  : 7,
-               in_stock : 4
-            },
-            {
-               brand : 'china teki',
-               color : 'purple',
-               size  : 7,
-               in_stock : 14
-            }
-         ]);
-      });// search 2.3
-   });//search for all shoe with (NAME)
    describe('Add all total stock shoes with (NAME)',function(){
       var total = ShoeCatalogue();
       var stock4 = [
@@ -261,5 +261,91 @@ describe('Shoe Catalogue application Tests', function(){
       it('Total stock for (amateki)', function(){
          assert.equal(total.totalStock('vovo'),9);
       });// total 3
-   });
+   });//Add all total stock shoes with (NAME)
+   describe('ordering from the stock', function(){
+      var order = ShoeCatalogue();
+      var stock4 = [
+         {
+            brand : 'amateki',
+            color : 'red',
+            size  : 6,
+            in_stock : 5
+         },
+         {
+            brand : 'vovo',
+            color : 'orange',
+            size  : 5,
+            in_stock : 9
+         },
+         {
+            brand : 'amateki',
+            color : 'white',
+            size  : 4,
+            in_stock : 13
+         },
+         {
+            brand : 'china teki',
+            color : 'purple',
+            size  : 7,
+            in_stock : 4
+         },
+         {
+            brand : 'china teki',
+            color : 'yellow',
+            size  : 5,
+            in_stock : 8
+         },
+         {
+            brand : 'amateki',
+            color : 'black',
+            size  : 4,
+            in_stock : 7
+         }
+      ];
+      order.inStock(stock4);
+      it('order two amateki', function(){
+         order.makeOrder('amateki','red',6);
+         order.makeOrder('amateki','black',4);
+         assert.equal(order.stockShoes(),
+         [
+            {
+               brand : 'amateki',
+               color : 'red',
+               size  : 6,
+               in_stock : 4
+            },
+            {
+               brand : 'vovo',
+               color : 'orange',
+               size  : 5,
+               in_stock : 9
+            },
+            {
+               brand : 'amateki',
+               color : 'white',
+               size  : 4,
+               in_stock : 13
+            },
+            {
+               brand : 'china teki',
+               color : 'purple',
+               size  : 7,
+               in_stock : 4
+            },
+            {
+               brand : 'china teki',
+               color : 'yellow',
+               size  : 5,
+               in_stock : 8
+            },
+            {
+               brand : 'amateki',
+               color : 'black',
+               size  : 4,
+               in_stock : 6
+            }
+         ]
+         );
+      });//order 1
+   });//ordering from the stock
 });//End of application test

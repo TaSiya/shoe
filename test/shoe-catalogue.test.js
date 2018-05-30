@@ -382,7 +382,7 @@ describe('Shoe Catalogue application Tests', function(){
             in_stock : 8
          },
          {
-            brand : 'amateki',
+            brand : 'amateki',8979
             color : 'black',
             size  : 4,
             in_stock : 7

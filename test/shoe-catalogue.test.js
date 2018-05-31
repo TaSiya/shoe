@@ -348,7 +348,7 @@ describe('Shoe Catalogue application Tests', function(){
          );
       });//order 1
    });//ordering from the stock
-   describe('canceling order made', function(){
+   describe('cancelling order made', function(){
       var check = ShoeCatalogue();
       var stock5 = [
          {
@@ -388,6 +388,7 @@ describe('Shoe Catalogue application Tests', function(){
             in_stock : 7
          }
       ];
+      check.inStock(stock5);
       it('cancel amateki', function(){
          check.makeOrder('amateki', 'red',6);
          check.makeOrder('amateki', 'red',6);
@@ -405,6 +406,56 @@ describe('Shoe Catalogue application Tests', function(){
                size  : 6,
             }
          ]);
+      });
+   });
+   describe('checking out', function(){
+      var checkOut = ShoeCatalogue();
+      var stock6 = [
+         {
+            brand : 'amateki',
+            color : 'red',
+            size  : 6,
+            in_stock : 5
+         },
+         {
+            brand : 'vovo',
+            color : 'orange',
+            size  : 5,
+            in_stock : 9
+         },
+         {
+            brand : 'amateki',
+            color : 'white',
+            size  : 4,
+            in_stock : 13
+         },
+         {
+            brand : 'china teki',
+            color : 'purple',
+            size  : 7,
+            in_stock : 4
+         },
+         {
+            brand : 'china teki',
+            color : 'yellow',
+            size  : 5,
+            in_stock : 8
+         },
+         {
+            brand : 'amateki',
+            color : 'black',
+            size  : 4,
+            in_stock : 7
+         }
+      ];
+      checkOut.inStock(stock6);
+      it('checking out test 1', function(){
+         checkOut.makeOrder('amateki','black',4);
+         checkOut.makeOrder('china teki','purple',7);
+         checkOut.makeOrder('amateki','black',4);
+         checkOut.makeOrder('vovo','orange',5);
+         checkOut.cancelAll();
+         assert.equal(checkOut.inBasket(), []);
       });
    });
 });//End of application test

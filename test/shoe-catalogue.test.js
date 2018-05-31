@@ -6,7 +6,7 @@ describe('Shoe Catalogue application Tests', function(){
          addStock.inStock(stock1);
          addStock.addingStock('puma','silver', 4, 2); // adding the stock with the function with key addingStock takes in 4 parameters
          addStock.addingStock('jet','blue',4); // addingStock takes in 3 parameters (no stock)
-         assert.equal(addStock.stockShoes(),
+         assert.deepEqual(addStock.stockShoes(),
          [
             {brand : 'puma',
              colour : 'silver',
@@ -51,7 +51,7 @@ describe('Shoe Catalogue application Tests', function(){
          addStock.addingStock('puma','silver',4,2);
          addStock.addingStock('china teki','purple',7,10);
          addStock.addingStock('vovo','orange',5);
-         assert.equal(addStock.stockShoes(),
+         assert.deepEqual(addStock.stockShoes(),
          [
             {
                brand : 'amateki',
@@ -167,7 +167,7 @@ describe('Shoe Catalogue application Tests', function(){
       ];
       search2.inStock(stock3);
       it('search for all (amateki) shoe', function(){
-         assert.equal(search2.searchAll('amateki'),
+         assert.deepEqual(search2.searchAll('amateki'),
             [
                {
                   brand : 'amateki',
@@ -191,10 +191,10 @@ describe('Shoe Catalogue application Tests', function(){
          );
       });//search 2.1
       it('search for all puma', function(){
-         assert.equal(search2.searchAll('puma'),[]);
+         assert.deepEqual(search2.searchAll('puma'),[]);
       });// search 2.2
       it('search for all puma', function(){
-         assert.equal(search2.searchAll('china teki'),
+         assert.deepEqual(search2.searchAll('china teki'),
          [
             {
                brand : 'china teki',
@@ -253,13 +253,13 @@ describe('Shoe Catalogue application Tests', function(){
       ];
       total.inStock(stock4);
       it('Total stock for (amateki)', function(){
-         assert.equal(total.totalStock('amateki'),25);
+         assert.deepEqual(total.totalStock('amateki'),25);
       });// total 1
       it('Total stock for (amateki)', function(){
-         assert.equal(total.totalStock('china teki'),12);
+         assert.deepEqual(total.totalStock('china teki'),12);
       });// total 2
       it('Total stock for (amateki)', function(){
-         assert.equal(total.totalStock('vovo'),9);
+         assert.deepEqual(total.totalStock('vovo'),9);
       });// total 3
    });//Add all total stock shoes with (NAME)
    describe('ordering from the stock', function(){
@@ -306,7 +306,7 @@ describe('Shoe Catalogue application Tests', function(){
       it('order two amateki', function(){
          order.makeOrder('amateki','red',6);
          order.makeOrder('amateki','black',4);
-         assert.equal(order.stockShoes(),
+         assert.deepEqual(order.stockShoes(),
          [
             {
                brand : 'amateki',
@@ -382,7 +382,7 @@ describe('Shoe Catalogue application Tests', function(){
             in_stock : 8
          },
          {
-            brand : 'amateki',8979
+            brand : 'amateki',
             colour : 'black',
             size  : 4,
             in_stock : 7
@@ -394,7 +394,7 @@ describe('Shoe Catalogue application Tests', function(){
          check.makeOrder('amateki', 'red',6);
          check.makeOrder('amateki', 'red',6);
          check.cancelOrder(1);
-         assert.equal(check.inBasket(),[
+         assert.deepEqual(check.inBasket(),[
             {
                brand : 'amateki',
                colour : 'red',
@@ -455,7 +455,7 @@ describe('Shoe Catalogue application Tests', function(){
          checkOut.makeOrder('amateki','black',4);
          checkOut.makeOrder('vovo','orange',5);
          checkOut.cancelAll();
-         assert.equal(checkOut.inBasket(), []);
+         assert.deepEqual(checkOut.inBasket(), []);
       });
    });
 });//End of application test

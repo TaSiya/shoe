@@ -1,41 +1,128 @@
 describe('Shoe Catalogue application Tests', function(){
+   describe('Adding to a stock', function(){
+      var addStock = ShoeCatalogue();
+      it('Adding in empty stock', function(){
+         var stock1 = [];
+         addStock.inStock(stock1);
+         addStock.addingStock('puma','silver', 4, 2); // adding the stock with the function with key addingStock takes in 4 parameters
+         addStock.addingStock('jet','blue',4); // addingStock takes in 3 parameters (no stock)
+         assert.equal(addStock.stockShoes(),
+         [
+            {brand : 'puma',
+             colour : 'silver',
+             size : 4,
+             in_stock : 2
+            },
+            {brand : 'jet',
+             colour: 'blue',
+             size : 4,
+             in_stock : 1
+            }
+         ]);
+      });// adding 1
+      it('Adding to a map containing stock', function(){
+         var stock2 = [
+            {
+               brand : 'amateki',
+               colour : 'red',
+               size  : 6,
+               in_stock : 5
+            },
+            {
+               brand : 'vovo',
+               colour : 'orange',
+               size  : 5,
+               in_stock : 9
+            },
+            {
+               brand : 'amateki',
+               colour : 'white',
+               size  : 4,
+               in_stock : 13
+            },
+            {
+               brand : 'china teki',
+               colour : 'purple',
+               size  : 7,
+               in_stock : 4
+            }
+         ];
+         addStock.inStock(stock2);
+         addStock.addingStock('puma','silver',4,2);
+         addStock.addingStock('china teki','purple',7,10);
+         addStock.addingStock('vovo','orange',5);
+         assert.equal(addStock.stockShoes(),
+         [
+            {
+               brand : 'amateki',
+               colour : 'red',
+               size  : 6,
+               in_stock : 5
+            },
+            {
+               brand : 'vovo',
+               colour : 'orange',
+               size  : 5,
+               in_stock : 10
+            },
+            {
+               brand : 'amateki',
+               colour : 'white',
+               size  : 4,
+               in_stock : 13
+            },
+            {
+               brand : 'china teki',
+               colour : 'purple',
+               size  : 7,
+               in_stock : 14
+            },
+            {
+               brand : 'puma',
+               colour : 'silver',
+               size : 4,
+               in_stock : 2
+            }
+         ]);
+      });
+   });//Adding a new stock
    describe('search for a single stock shoe', function(){
       var search = ShoeCatalogue();
       var stock = [
          {
             brand : 'vovo',
-            color : 'white',
+            colour : 'white',
             size : 4,
             in_stock : 8
          },
          {
             brand : 'amateki',
-            color : 'black',
+            colour : 'black',
             size : 6,
             in_stock : 15
          },
          {
             brand : 'china teki',
-            color : 'pink',
+            colour : 'pink',
             size  : 4,
             in_stock : 5
          },
          {
             brand : 'amateki',
-            color : 'white',
+            colour : 'white',
             size : 5,
             in_stock : 9
          }
       ];
       search.inStock(stock); //assign the list to the stock or map of the shoes
-      it('brand : amateki color: black size :6', function(){
-         assert.deepEqual(search.searchShoe('amateki', 'black', 6), {brand : 'amateki',color : 'black',size : 6,in_stock : 15});
+      it('brand : amateki colour: black size :6', function(){
+         assert.deepEqual(search.searchShoe('amateki', 'black', 6), {brand : 'amateki',colour : 'black',size : 6,in_stock : 15});
       });//search 1
-      it('brand :adidas color :red size :8', function(){
+      it('brand :adidas colour :red size :8', function(){
          assert.deepEqual(search.searchShoe('adidas','red',8),{});
       });//search 2
-      it('brand :China teki color :pink size :4', function(){
-         assert.deepEqual(search.searchShoe('chine teki','pink',4),{brand : 'china teki',color : 'pink',size  : 4,in_stock : 5});
+      it('brand :China teki colour :pink size :4', function(){
+         assert.deepEqual(search.searchShoe('chine teki','pink',4),{brand : 'china teki',colour : 'pink',size  : 4,in_stock : 5});
       });//search 3
    });//search for a shoe
    describe('search for all shoe with (NAME)', function(){
@@ -43,37 +130,37 @@ describe('Shoe Catalogue application Tests', function(){
       var stock3 = [
          {
             brand : 'amateki',
-            color : 'red',
+            colour : 'red',
             size  : 6,
             in_stock : 5
          },
          {
             brand : 'vovo',
-            color : 'orange',
+            colour : 'orange',
             size  : 5,
             in_stock : 9
          },
          {
             brand : 'amateki',
-            color : 'white',
+            colour : 'white',
             size  : 4,
             in_stock : 13
          },
          {
             brand : 'china teki',
-            color : 'purple',
+            colour : 'purple',
             size  : 7,
             in_stock : 4
          },
          {
             brand : 'china teki',
-            color : 'yellow',
+            colour : 'yellow',
             size  : 5,
             in_stock : 8
          },
          {
             brand : 'amateki',
-            color : 'black',
+            colour : 'black',
             size  : 4,
             in_stock : 7
          }
@@ -84,19 +171,19 @@ describe('Shoe Catalogue application Tests', function(){
             [
                {
                   brand : 'amateki',
-                  color : 'red',
+                  colour : 'red',
                   size  : 6,
                   in_stock : 5
                },
                {
                   brand : 'amateki',
-                  color : 'white',
+                  colour : 'white',
                   size  : 4,
                   in_stock : 13
                },
                {
                   brand : 'amateki',
-                  color : 'black',
+                  colour : 'black',
                   size  : 4,
                   in_stock : 7
                }
@@ -111,142 +198,55 @@ describe('Shoe Catalogue application Tests', function(){
          [
             {
                brand : 'china teki',
-               color : 'purple',
+               colour : 'purple',
                size  : 7,
                in_stock : 4
             },
             {
                brand : 'china teki',
-               color : 'purple',
-               size  : 7,
-               in_stock : 14
+               colour : 'yellow',
+               size  : 5,
+               in_stock : 8
             }
          ]);
       });// search 2.3
    });//search for all shoe with (NAME)
-   describe('Adding a new stock', function(){
-      var addStock = ShoeCatalogue();
-      it('Adding in empty stock', function(){
-         var stock1 = [];
-         addStock.inStock(stock1);
-         addStock.addingStock('puma','silver', 4, 2); // adding the stock with the function with key addingStock takes in 4 parameters
-         addStock.addingStock('jet','blue',4); // addingStock takes in 3 parameters (no stock)
-         assert.equal(addStock.stockShoes(),
-         [
-            {brand : 'puma',
-             color : silver,
-             size : 4,
-             in_stock : 2
-            },
-            {brand : 'jet',
-             color: 'blue',
-             size : 4,
-             in_stock : 1
-            }
-         ]);
-      });// adding 1
-      it('Adding to a map containing stock', function(){
-         var stock2 = [
-            {
-               brand : 'amateki',
-               color : 'red',
-               size  : 6,
-               in_stock : 5
-            },
-            {
-               brand : 'vovo',
-               color : 'orange',
-               size  : 5,
-               in_stock : 9
-            },
-            {
-               brand : 'amateki',
-               color : 'white',
-               size  : 4,
-               in_stock : 13
-            },
-            {
-               brand : 'china teki',
-               color : 'purple',
-               size  : 7,
-               in_stock : 4
-            }
-         ];
-         addStock.inStock(stock2);
-         addStock.addingStock('puma','silver',4,2);
-         addStock.addingStock('china teki','purple',7,10);
-         addStock.addingStock('vovo','orange',5);
-         assert.equal(addStock.stockShoes(),
-         [
-            {
-               brand : 'amateki',
-               color : 'red',
-               size  : 6,
-               in_stock : 5
-            },
-            {
-               brand : 'vovo',
-               color : 'orange',
-               size  : 5,
-               in_stock : 10
-            },
-            {
-               brand : 'amateki',
-               color : 'white',
-               size  : 4,
-               in_stock : 13
-            },
-            {
-               brand : 'china teki',
-               color : 'purple',
-               size  : 7,
-               in_stock : 14
-            },
-            {
-               brand : 'puma',
-               color : 'silver',
-               size : 4,
-               in_stock : 2
-            }
-         ]);
-      });
-   });//Adding a new stock
    describe('Add all total stock shoes with (NAME)',function(){
       var total = ShoeCatalogue();
       var stock4 = [
          {
             brand : 'amateki',
-            color : 'red',
+            colour : 'red',
             size  : 6,
             in_stock : 5
          },
          {
             brand : 'vovo',
-            color : 'orange',
+            colour : 'orange',
             size  : 5,
             in_stock : 9
          },
          {
             brand : 'amateki',
-            color : 'white',
+            colour : 'white',
             size  : 4,
             in_stock : 13
          },
          {
             brand : 'china teki',
-            color : 'purple',
+            colour : 'purple',
             size  : 7,
             in_stock : 4
          },
          {
             brand : 'china teki',
-            color : 'yellow',
+            colour : 'yellow',
             size  : 5,
             in_stock : 8
          },
          {
             brand : 'amateki',
-            color : 'black',
+            colour : 'black',
             size  : 4,
             in_stock : 7
          }
@@ -267,37 +267,37 @@ describe('Shoe Catalogue application Tests', function(){
       var stock4 = [
          {
             brand : 'amateki',
-            color : 'red',
+            colour : 'red',
             size  : 6,
             in_stock : 5
          },
          {
             brand : 'vovo',
-            color : 'orange',
+            colour : 'orange',
             size  : 5,
             in_stock : 9
          },
          {
             brand : 'amateki',
-            color : 'white',
+            colour : 'white',
             size  : 4,
             in_stock : 13
          },
          {
             brand : 'china teki',
-            color : 'purple',
+            colour : 'purple',
             size  : 7,
             in_stock : 4
          },
          {
             brand : 'china teki',
-            color : 'yellow',
+            colour : 'yellow',
             size  : 5,
             in_stock : 8
          },
          {
             brand : 'amateki',
-            color : 'black',
+            colour : 'black',
             size  : 4,
             in_stock : 7
          }
@@ -310,37 +310,37 @@ describe('Shoe Catalogue application Tests', function(){
          [
             {
                brand : 'amateki',
-               color : 'red',
+               colour : 'red',
                size  : 6,
                in_stock : 4
             },
             {
                brand : 'vovo',
-               color : 'orange',
+               colour : 'orange',
                size  : 5,
                in_stock : 9
             },
             {
                brand : 'amateki',
-               color : 'white',
+               colour : 'white',
                size  : 4,
                in_stock : 13
             },
             {
                brand : 'china teki',
-               color : 'purple',
+               colour : 'purple',
                size  : 7,
                in_stock : 4
             },
             {
                brand : 'china teki',
-               color : 'yellow',
+               colour : 'yellow',
                size  : 5,
                in_stock : 8
             },
             {
                brand : 'amateki',
-               color : 'black',
+               colour : 'black',
                size  : 4,
                in_stock : 6
             }
@@ -353,37 +353,37 @@ describe('Shoe Catalogue application Tests', function(){
       var stock5 = [
          {
             brand : 'amateki',
-            color : 'red',
+            colour : 'red',
             size  : 6,
             in_stock : 5
          },
          {
             brand : 'vovo',
-            color : 'orange',
+            colour : 'orange',
             size  : 5,
             in_stock : 9
          },
          {
             brand : 'amateki',
-            color : 'white',
+            colour : 'white',
             size  : 4,
             in_stock : 13
          },
          {
             brand : 'china teki',
-            color : 'purple',
+            colour : 'purple',
             size  : 7,
             in_stock : 4
          },
          {
             brand : 'china teki',
-            color : 'yellow',
+            colour : 'yellow',
             size  : 5,
             in_stock : 8
          },
          {
             brand : 'amateki',8979
-            color : 'black',
+            colour : 'black',
             size  : 4,
             in_stock : 7
          }
@@ -397,12 +397,12 @@ describe('Shoe Catalogue application Tests', function(){
          assert.equal(check.inBasket(),[
             {
                brand : 'amateki',
-               color : 'red',
+               colour : 'red',
                size  : 6,
             },
             {
                brand : 'amateki',
-               color : 'red',
+               colour : 'red',
                size  : 6,
             }
          ]);
@@ -413,37 +413,37 @@ describe('Shoe Catalogue application Tests', function(){
       var stock6 = [
          {
             brand : 'amateki',
-            color : 'red',
+            colour : 'red',
             size  : 6,
             in_stock : 5
          },
          {
             brand : 'vovo',
-            color : 'orange',
+            colour : 'orange',
             size  : 5,
             in_stock : 9
          },
          {
             brand : 'amateki',
-            color : 'white',
+            colour : 'white',
             size  : 4,
             in_stock : 13
          },
          {
             brand : 'china teki',
-            color : 'purple',
+            colour : 'purple',
             size  : 7,
             in_stock : 4
          },
          {
             brand : 'china teki',
-            color : 'yellow',
+            colour : 'yellow',
             size  : 5,
             in_stock : 8
          },
          {
             brand : 'amateki',
-            color : 'black',
+            colour : 'black',
             size  : 4,
             in_stock : 7
          }

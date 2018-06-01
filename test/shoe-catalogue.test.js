@@ -349,50 +349,51 @@ describe('Shoe Catalogue application Tests', function(){
       });//order 1
    });//ordering from the stock
    describe('cancelling order made', function(){
-      var check = ShoeCatalogue();
-      var stock5 = [
-         {
-            brand : 'amateki',
-            colour : 'red',
-            size  : 6,
-            in_stock : 5
-         },
-         {
-            brand : 'vovo',
-            colour : 'orange',
-            size  : 5,
-            in_stock : 9
-         },
-         {
-            brand : 'amateki',
-            colour : 'white',
-            size  : 4,
-            in_stock : 13
-         },
-         {
-            brand : 'china teki',
-            colour : 'purple',
-            size  : 7,
-            in_stock : 4
-         },
-         {
-            brand : 'china teki',
-            colour : 'yellow',
-            size  : 5,
-            in_stock : 8
-         },
-         {
-            brand : 'amateki',
-            colour : 'black',
-            size  : 4,
-            in_stock : 7
-         }
-      ];
-      check.inStock(stock5);
       it('cancel amateki', function(){
+         var check = ShoeCatalogue();
+         var stock5 = [
+            {
+               brand : 'amateki',
+               colour : 'red',
+               size  : 6,
+               in_stock : 5
+            },
+            {
+               brand : 'vovo',
+               colour : 'orange',
+               size  : 5,
+               in_stock : 9
+            },
+            {
+               brand : 'amateki',
+               colour : 'white',
+               size  : 4,
+               in_stock : 13
+            },
+            {
+               brand : 'china teki',
+               colour : 'purple',
+               size  : 7,
+               in_stock : 4
+            },
+            {
+               brand : 'china teki',
+               colour : 'yellow',
+               size  : 5,
+               in_stock : 8
+            },
+            {
+               brand : 'amateki',
+               colour : 'black',
+               size  : 4,
+               in_stock : 7
+            }
+         ];
+         check.inStock(stock5);
          check.makeOrder('amateki', 'red',6);
+         check.makeOrder('china teki', 'yellow',5);
          check.makeOrder('amateki', 'red',6);
-         check.makeOrder('amateki', 'red',6);
+         check.makeOrder('china teki', 'yellow',5);
          check.cancelOrder(1);
          assert.deepEqual(check.inBasket(),[
             {
@@ -404,8 +405,59 @@ describe('Shoe Catalogue application Tests', function(){
                brand : 'amateki',
                colour : 'red',
                size  : 6,
+            },
+            {
+               brand : 'china teki',
+               colour : 'yellow',
+               size  : 5,
             }
          ]);
+      });
+
+      it('cancel amateki', function(){
+         var check2 = ShoeCatalogue();
+         var stock502 = [
+            {
+               brand : 'amateki',
+               colour : 'red',
+               size  : 6,
+               in_stock : 5
+            },
+            {
+               brand : 'vovo',
+               colour : 'orange',
+               size  : 5,
+               in_stock : 9
+            },
+            {
+               brand : 'amateki',
+               colour : 'white',
+               size  : 4,
+               in_stock : 13
+            },
+            {
+               brand : 'china teki',
+               colour : 'purple',
+               size  : 7,
+               in_stock : 4
+            },
+            {
+               brand : 'china teki',
+               colour : 'yellow',
+               size  : 5,
+               in_stock : 8
+            },
+            {
+               brand : 'amateki',
+               colour : 'black',
+               size  : 4,
+               in_stock : 7
+            }
+         ];
+         check2.inStock(stock502);
+         check2.makeOrder('amateki', 'red',6);
+         check2.cancelOrder(0);
+         assert.deepEqual(check2.inBasket(),[]);
       });
    });
    describe('checking out', function(){

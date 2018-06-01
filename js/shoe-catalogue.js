@@ -43,13 +43,7 @@ function ShoeCatalogue(stored){
       var searched = [];
       for(var i = 0 ; i < getShoeslength() ; i++){
          if(stock_map[i].brand === theBrand){
-            var temp = {
-               brand : stock_map[i].brand,
-               colour : stock_map[i].colour,
-               size : stock_map[i].size,
-               in_stock : stock_map[i].in_stock
-            }
-            searched.push(temp);
+            searched.push(stock_map[i]);
          }
       }
       return searched;
@@ -60,17 +54,16 @@ function ShoeCatalogue(stored){
       for(var i = 0 ; i < getShoeslength() ; i++){
          if(stock_map[i].brand === specificBrand && stock_map[i].colour === specificColour && stock_map[i].size == specificSize){
             flag = true;
-            return {
-               brand : stock_map[i].brand,
-               colour : stock_map[i].colour,
-               size : stock_map[i].size,
-               in_stock : stock_map[i].in_stock
-            };
+            return stock_map[i];
          }
       }
       if(!flag){
          return {};
       }
+   }
+
+   function basketOrder(){
+      return basket;
    }
    //Cannot be tested because return nothing or not needed for testing
    function takeCare(shoe){
@@ -108,6 +101,32 @@ function ShoeCatalogue(stored){
       }
    }
 
+   function order(orderBrand, orderColour, orderSize){
+      for(var i = 0 ; i < getShoeslength() ; i++){
+         if(stock_map[i].brand === orderBrand && stock_map[i].colour === orderColour && stock_map[i].size === orderSize){
+            var tempPush = {
+               brand : orderBrand,
+               colour : orderColour,
+               size : orderSize,
+            };
+            stock_map[i].in_stock --;
+            basket.push(tempPush);
+            break;
+         }
+      }
+   }
+
+   function orderCancel(index){
+      if(basket[index].brand !== undefined || basket.length != 0){
+         addStock(basket[index].brand,basket[index].colour,basket[index].size);
+         basket.splice(index,1)
+      }
+      else{
+         
+      }
+
+   }
+
    return{
       inStock : storedMap,
       addingStock : addStock,
@@ -115,7 +134,10 @@ function ShoeCatalogue(stored){
       length : getShoeslength,
       totalStock : stockTotal,
       searchAll : searchAllShoeBrand,
-      searchShoe : searchSpecificBrand
+      searchShoe : searchSpecificBrand,
+      makeOrder : order,
+      inBasket : basketOrder,
+      cancelOrder : orderCancel
    }
 
 }

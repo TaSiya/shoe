@@ -137,45 +137,6 @@ describe('Shoe Catalogue application Tests', function(){
          assert.deepEqual(total.totalStock('vovo'),9);
       });// total 3
    });//Add all total stock shoes with (NAME)
-   describe('search for a single stock shoe', function(){
-      var search = ShoeCatalogue();
-      var stock = [
-         {
-            brand : 'vovo',
-            colour : 'white',
-            size : 4,
-            in_stock : 8
-         },
-         {
-            brand : 'amateki',
-            colour : 'black',
-            size : 6,
-            in_stock : 15
-         },
-         {
-            brand : 'china teki',
-            colour : 'pink',
-            size  : 4,
-            in_stock : 5
-         },
-         {
-            brand : 'amateki',
-            colour : 'white',
-            size : 5,
-            in_stock : 9
-         }
-      ];
-      search.inStock(stock); //assign the list to the stock or map of the shoes
-      it('brand : amateki colour: black size :6', function(){
-         assert.deepEqual(search.searchShoe('amateki', 'black', 6), {brand : 'amateki',colour : 'black',size : 6,in_stock : 15});
-      });//search 1
-      it('brand :adidas colour :red size :8', function(){
-         assert.deepEqual(search.searchShoe('adidas','red',8),{});
-      });//search 2
-      it('brand :China teki colour :pink size :4', function(){
-         assert.deepEqual(search.searchShoe('chine teki','pink',4),{brand : 'china teki',colour : 'pink',size  : 4,in_stock : 5});
-      });//search 3
-   });//search for a shoe
    describe('search for all shoe with (NAME)', function(){
       var search2 = ShoeCatalogue();
       var stock3 = [
@@ -262,7 +223,45 @@ describe('Shoe Catalogue application Tests', function(){
          ]);
       });// search 2.3
    });//search for all shoe with (NAME)
-
+   describe('search for a single stock shoe', function(){
+      var search = ShoeCatalogue();
+      var stock = [
+         {
+            brand : 'vovo',
+            colour : 'white',
+            size : 4,
+            in_stock : 8
+         },
+         {
+            brand : 'amateki',
+            colour : 'black',
+            size : 6,
+            in_stock : 15
+         },
+         {
+            brand : 'china teki',
+            colour : 'pink',
+            size  : 4,
+            in_stock : 5
+         },
+         {
+            brand : 'amateki',
+            colour : 'white',
+            size : 5,
+            in_stock : 9
+         }
+      ];
+      search.inStock(stock); //assign the list to the stock or map of the shoes
+      it('brand : amateki colour: black size :6', function(){
+         assert.deepEqual(search.searchShoe('amateki', 'black', 6), {brand : 'amateki',colour : 'black',size : 6,in_stock : 15});
+      });//search 1
+      it('brand :adidas colour :red size :8', function(){
+         assert.deepEqual(search.searchShoe('adidas','red',8),{});
+      });//search 2
+      it('brand :China teki colour :pink size :4', function(){
+         assert.deepEqual(search.searchShoe('chine teki','pink',4),{brand : 'china teki',colour : 'pink',size  : 4,in_stock : 5});
+      });//search 3
+   });//search for a shoe
    describe('ordering from the stock', function(){
       var order = ShoeCatalogue();
       var stock4 = [

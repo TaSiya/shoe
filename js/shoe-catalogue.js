@@ -40,6 +40,22 @@ function ShoeCatalogue(stored){
       return total;
    }
 
+   function searchAllShoeBrand(theBrand){
+      storedMap();
+      var searched = [];
+      for(var i = 0 ; i < getShoeslength() ; i++){
+         if(stock_map[i].brand === theBrand){
+            var temp = {
+               brand : stock_map[i].brand,
+               colour : stock_map[i].colour,
+               size : stock_map[i].size,
+               in_stock : stock_map[i].in_stock
+            }
+            searched.push(temp);
+         }
+      }
+      return searched;
+   }
    //Cannot be tested because return nothing or not needed for testing
    function takeCare(shoe){
       globalColour = shoe.colour || 'blue';
@@ -81,7 +97,8 @@ function ShoeCatalogue(stored){
       addingStock : addStock,
       stockShoes : getAllShoes,
       length : getShoeslength,
-      totalStock : stockTotal
+      totalStock : stockTotal,
+      searchAll : searchAllShoeBrand
    }
 
 }

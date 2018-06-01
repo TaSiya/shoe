@@ -347,6 +347,26 @@ describe('Shoe Catalogue application Tests', function(){
          ]
          );
       });//order 1
+      it('order one vovo, but check the basket instead of the Shoe stock', function(){
+         order.makeOrder('vovo','orange',5);
+         assert.deepEqual(order.inBasket(),[
+            {
+               brand : 'amateki',
+               colour : 'red',
+               size  : 6
+            },
+            {
+               brand : 'amateki',
+               colour : 'black',
+               size  : 4
+            },
+            {
+               brand : 'vovo',
+               colour : 'orange',
+               size  : 5
+            }
+         ]);
+      });
    });//ordering from the stock
    describe('cancelling order made', function(){
       it('cancel amateki', function(){
@@ -509,7 +529,7 @@ describe('Shoe Catalogue application Tests', function(){
          checkOut.cancelAll();
          assert.deepEqual(checkOut.inBasket(), []);
       });
-      it('checking out test 1', function(){
+      it('checking out test 2', function(){
          checkOut.cancelAll();
          assert.deepEqual(checkOut.inBasket(), []);
       });

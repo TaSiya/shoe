@@ -30,7 +30,6 @@ function ShoeCatalogue(stored){
    }
 
    function stockTotal(theBrand){
-      storedMap();
       var total = 0 ;
       for(var i = 0 ; i < getShoeslength() ; i++){
          if(stock_map[i].brand === theBrand){
@@ -41,7 +40,6 @@ function ShoeCatalogue(stored){
    }
 
    function searchAllShoeBrand(theBrand){
-      storedMap();
       var searched = [];
       for(var i = 0 ; i < getShoeslength() ; i++){
          if(stock_map[i].brand === theBrand){
@@ -55,6 +53,24 @@ function ShoeCatalogue(stored){
          }
       }
       return searched;
+   }
+
+   function searchSpecificBrand(specificBrand, specificColour, specificSize){
+      var flag = false;
+      for(var i = 0 ; i < getShoeslength() ; i++){
+         if(stock_map[i].brand === specificBrand && stock_map[i].colour === specificColour && stock_map[i].size == specificSize){
+            flag = true;
+            return {
+               brand : stock_map[i].brand,
+               colour : stock_map[i].colour,
+               size : stock_map[i].size,
+               in_stock : stock_map[i].in_stock
+            };
+         }
+      }
+      if(!flag){
+         return {};
+      }
    }
    //Cannot be tested because return nothing or not needed for testing
    function takeCare(shoe){
@@ -98,7 +114,8 @@ function ShoeCatalogue(stored){
       stockShoes : getAllShoes,
       length : getShoeslength,
       totalStock : stockTotal,
-      searchAll : searchAllShoeBrand
+      searchAll : searchAllShoeBrand,
+      searchShoe : searchSpecificBrand
    }
 
 }

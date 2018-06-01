@@ -259,7 +259,7 @@ describe('Shoe Catalogue application Tests', function(){
          assert.deepEqual(search.searchShoe('adidas','red',8),{});
       });//search 2
       it('brand :China teki colour :pink size :4', function(){
-         assert.deepEqual(search.searchShoe('chine teki','pink',4),{brand : 'china teki',colour : 'pink',size  : 4,in_stock : 5});
+         assert.deepEqual(search.searchShoe('china teki','pink',4),{brand : 'china teki',colour : 'pink',size  : 4,in_stock : 5});
       });//search 3
    });//search for a shoe
    describe('ordering from the stock', function(){

@@ -130,10 +130,10 @@ describe('Shoe Catalogue application Tests', function(){
       it('Total stock for (amateki)', function(){
          assert.deepEqual(total.totalStock('amateki'),25);
       });// total 1
-      it('Total stock for (amateki)', function(){
+      it('Total stock for (china teki)', function(){
          assert.deepEqual(total.totalStock('china teki'),12);
       });// total 2
-      it('Total stock for (amateki)', function(){
+      it('Total stock for (vovo)', function(){
          assert.deepEqual(total.totalStock('vovo'),9);
       });// total 3
    });//Add all total stock shoes with (NAME)
@@ -205,7 +205,7 @@ describe('Shoe Catalogue application Tests', function(){
       it('search for all puma', function(){
          assert.deepEqual(search2.searchAll('puma'),[]);
       });// search 2.2
-      it('search for all puma', function(){
+      it('search for all china teki', function(){
          assert.deepEqual(search2.searchAll('china teki'),
          [
             {

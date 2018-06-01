@@ -509,5 +509,9 @@ describe('Shoe Catalogue application Tests', function(){
          checkOut.cancelAll();
          assert.deepEqual(checkOut.inBasket(), []);
       });
+      it('checking out test 1', function(){
+         checkOut.cancelAll();
+         assert.deepEqual(checkOut.inBasket(), []);
+      });
    });
 });//End of application test

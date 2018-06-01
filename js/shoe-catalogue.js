@@ -121,10 +121,12 @@ function ShoeCatalogue(stored){
          addStock(basket[index].brand,basket[index].colour,basket[index].size);
          basket.splice(index,1)
       }
-      else{
-         
-      }
+   }
 
+   function clearAll(){
+      if(basket.length > 0){
+         basket.splice(0, basket.length)
+      }
    }
 
    return{
@@ -137,7 +139,8 @@ function ShoeCatalogue(stored){
       searchShoe : searchSpecificBrand,
       makeOrder : order,
       inBasket : basketOrder,
-      cancelOrder : orderCancel
+      cancelOrder : orderCancel,
+      cancelAll : clearAll
    }
 
 }

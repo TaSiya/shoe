@@ -1,179 +1,90 @@
 function ShoeCatalogue(stored){
+                        //Global variables
    var stock_map =[
-/*      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
       {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-      {
-         brand : '',
-         colour : '',
-         size : ,
-         in_stock :
-      },
-*/
-   ]
-   var total_stock = stock_map.length;
+         brand : 'amateki',
+         colour : 'red',
+         size : 6,
+         in_stock : 10
+      }
+   ];
    var basket = [];
-   var colour,brand, size, stock;
+   var globalColour,globalBrand, globalSize, globalIn_stock,total_stock ;
 
-   function storedMap(){
+   //Accessors and medofiers
+
+   function storedMap(stored){
       if(stored){
          stock_map = stored;
       }
    }
-
    function getAllShoes(){ return stock_map;}
+   function getShoeslength(){ return stock_map.length;}
+   function setShoesLength(value){ total_stock = value;}
 
-   function takeCare(shoe){
-      colour = shoe.colour || 'blue';
-      brand = shoe.brand || 'amateki';
-      size = shoe.size || 6;
-      stock = shoe.in_stock || 1 ;
+                           // Logic funtions
+   // Testable functions
+   function isLimit(){
+      if(total_stock < 50){return true;}
+      else{ return false;}
    }
 
-   function isLimit(){
-      if(total_stock >= 50){return false;}
-      else{ return true;}
+   function stockTotal(theBrand){
+      storedMap();
+      var total = 0 ;
+      for(var i = 0 ; i < getShoeslength() ; i++){
+         if(stock_map[i].brand === theBrand){
+            total = total + stock_map[i].in_stock;
+         }
+      }
+      return total;
+   }
+
+   //Cannot be tested because return nothing or not needed for testing
+   function takeCare(shoe){
+      globalColour = shoe.colour || 'blue';
+      globalBrand = shoe.brand || 'amateki';
+      globalSize = shoe.size || 6;
+      globalIn_stock = shoe.in_stock || 1 ;
    }
 
    function addStock(brandp,colourp,sizep,stockp){
+      var found = false;
+      storedMap();
       takeCare({
          brand : brandp,
          colour : colourp,
          size : sizep,
          in_stock : stockp
       });
-      storedMap();
-      if(isLimit()){
-         for(var i = 0 ; i < stock_map.length ; i++){
-            console.log('djkfnodanon');
-            if(stock_map[i][brand] === undefined && stock_map[i][colour] === undefined && stock_map[i][size] === undefined){
-               stock_map[i][brand] = brand;
-               stock_map[i][colour] = colour;
-               stock_map[i][size] = size;
-               stock_map[i][in_stock] = stock;
-            }
-            else{
-               stock_map[i][in_stock] += stock;
-            }
+      var tempPush = {
+         brand : globalBrand,
+         colour : globalColour,
+         size : globalSize,
+         in_stock : globalIn_stock
+      };
+      setShoesLength(getShoeslength());
+      for(var i = 0; i < total_stock ; i++){
+         if(stock_map[i].brand === tempPush.brand && stock_map[i].colour === tempPush.colour && stock_map[i].size == tempPush.size){
+            stock_map[i].in_stock += tempPush.in_stock;
+            found = true;
          }
+      }
+      if(!found){
+         stock_map.push(tempPush);
+         setShoesLength(getShoeslength());
       }
    }
 
    return{
       inStock : storedMap,
       addingStock : addStock,
-      stockShoes : getAllShoes
+      stockShoes : getAllShoes,
+      length : getShoeslength,
+      totalStock : stockTotal
    }
 
 }
+var tester = ShoeCatalogue();
+console.log(tester.length());
+console.log(tester.stockShoes());

@@ -12,3 +12,119 @@ greet({
    lastName : "Makhalima",
    //email : "siya@makhalima.com"
 });
+
+
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},
+{
+   brand : '',
+   colour : '',
+   size : ,
+   in_stock :
+},

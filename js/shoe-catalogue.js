@@ -1,4 +1,4 @@
-function ShoeCatalogue(stored){
+function ShoeCatalogue(storedMa, storedBas){
                         //Global variables
    var stock_map =[
       {
@@ -13,11 +13,18 @@ function ShoeCatalogue(stored){
 
    //Accessors and medofiers
 
-   function storedMap(stored){
-      if(stored){
-         stock_map = stored;
+   function storedMap(storedMa){
+      if(storedMa){
+         stock_map = storedMa;
       }
    }
+
+   function storedBasket(storedBas){
+      if(storedBas.length != 0){
+         basket = storedBas;
+      }
+   }
+
    function getAllShoes(){ return stock_map;}
    function getShoeslength(){ return stock_map.length;}
    function setShoesLength(value){ total_stock = value;}
@@ -131,6 +138,7 @@ function ShoeCatalogue(stored){
 
    return{
       inStock : storedMap,
+      inStoredBasket : storedBasket,
       addingStock : addStock,
       stockShoes : getAllShoes,
       length : getShoeslength,

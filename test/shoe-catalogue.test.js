@@ -264,7 +264,7 @@ describe('Shoe Catalogue application Tests', function(){
    });//search for a shoe
    describe('ordering from the stock', function(){
       var order = ShoeCatalogue();
-      var stock4 = [
+      var stock7 = [
          {
             brand : 'amateki',
             colour : 'red',
@@ -302,7 +302,7 @@ describe('Shoe Catalogue application Tests', function(){
             in_stock : 7
          }
       ];
-      order.inStock(stock4);
+      order.inStock(stock7);
       it('order two amateki', function(){
          order.makeOrder('amateki','red',6);
          order.makeOrder('amateki','black',4);

@@ -60,6 +60,7 @@ header p{
 
 input{
    margin-right : var(--rem);
+   border-radius: 5px;
 }
 
 .addingStock{
@@ -87,6 +88,7 @@ input{
 .addingStock button{
    text-align: center;
 }
+
 /* Search section */
 .dropDown{
    /* for the items in the dropdown menu to be aligh with each other */

@@ -91,7 +91,6 @@ function ShoeCatalogue(storedMa, storedBas){
          size : 8,
          in_stock : 6
       }
-
    ];
    var basket = [];
    var globalColour,globalBrand, globalSize, globalIn_stock,total_stock ;

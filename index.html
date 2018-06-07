@@ -5,19 +5,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+   <link rel="stylesheet" href="css/style.css">
    <script src="js/handlebars.runtime-v4.0.11.js"></script>
    <script type="text/x-template" class='stockDisplayTemplate' charset="utf-8">
-      {{#each stockData}}
+      {{#each stockData cartList}}
       <tr>
          <td>{{brand}}</td>
          <td>{{colour}}</td>
          <td>{{size}}</td>
          <td>{{stock}}</td>
       </tr>
+
+      <!-- <a href="#{{brand}}" value="{{brand}}" name="{{brand}}" class="{{brand}}Search dropdown-item">{{brand}}</a>
+      <a href="#{{colour}}" value="{{colour}}" name="{{colour}}" class="{{colour}}Search dropdown-item">{{colour}}</a>
+      <a href="#{{size}}" value="{{size}}" name="{{size}}" class="{{size}}Search dropdown-item">{{size}}</a> -->
+      <<a href="#Thecart">{{cartItems}}</a>
       {{/each}}
    </script>
+
     <title>Shoe Catalogue</title>
   </head>
   <body>
@@ -25,12 +33,20 @@
     <div class="container-fluid">
       <section class="sections top">
          <div class="row">
-            <div class="col-9">
+            <div class="col-8">
                <h1>Shoe shop</h1>
                <p>Store Open 24/7</p>
             </div>
-            <div class="col-3">
-               <button type="button" name="showCart" class='showCart'>Cart</button>
+            <div class="col-3 cartDropDown">
+                 <button class="btn btn-primary myCart" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                     Cart
+                 </button>
+               <div class="collapse" id="collapseExample">
+                 <div class="card card-body">
+                    <!-- Display the shoes in the cart -->
+
+                 </div>
+               </div>
             </div>
          </div>
          <hr>
@@ -42,23 +58,71 @@
             <h4>Adding a shoe to the stock</h4>
             <div class="w-100"></div>
             <div class="col">
-               <input type="input" name="brand" class='brand' placeholder="Brand name">
-               <span>Brand name</span>
+               <span>Brand</span>
+               <input type="input" name="brandAdd" class='brandAdd' placeholder="Brand name">
             </div>
             <div class="col">
-               <input type="input" name="colour" class='colour' placeholder="Colour of the shoe">
                <span>Colour</span>
+               <input type="input" name="colourAdd" class='colourAdd' placeholder="Colour of the shoe">
             </div>
             <div class="col">
-               <input type="number" name="size" class='size' placeholder="Enter shoe size">
                <span>Size</span>
+               <input type="number" name="sizeAdd" class='sizeAdd' placeholder="Enter shoe size">
             </div>
             <div class="col">
-               <input type="number" name="stock" class='stock' placeholder="how many stock">
                <span>Stock</span>
+               <input type="number" name="stockAdd" class='stockAdd' placeholder="how many stock">
             </div>
             <div class="w-100"></div>
             <button type="button" name="addStock" class='addStock'>Add stock</button>
+         </div>
+         <hr>
+      </section>
+
+      <section class="sections searchBrand">
+         <div class="row">
+            <h4>Search our stock</h4>
+            <div class='w-100'></div>
+            <div class="col dropDown">
+               <button class='btn dropBtn' type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Brand</button>
+               <div class="dropdown-menu brandToSearch" aria-labelledby="dropdownMenuButton">
+                  <!-- add the brands to the dropDown menu for the search -->
+                  <a href="#amateki" value="amateki" class="dropdown-item brandSearch">amateki</a>
+                  <a href="#vovo" value="vovo" class="dropdown-item brandSearch">vovo</a>
+                  <a href="#phuma" value="phuma" class="dropdown-item brandSearch">phuma</a>
+                  <a href="#china teki" value="china teki" class="dropdown-item brandSearch">china teki</a>
+                  <a href="#Originelz" value="Originelz" class="dropdown-item brandSearch">Originelz</a>
+               </div>
+            </div>
+
+            <div class="col dropDown">
+               <button class='btn dropBtn' type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Colour</button>
+               <div class="dropdown-menu colourToSearch" aria-labelledby="dropdownMenuButton">
+                  <!-- add the colour to the dropDown menu for the search -->
+                  <a  value="black" class="dropdown-item colourSearch">black</a>
+                  <a  value="white" class="dropdown-item colourSearch">white</a>
+                  <a  value="red" class="dropdown-item colourSearch">red</a>
+                  <a  value="pink" class="dropdown-item colourSearch">pink</a>
+                  <a  value="blue" class="dropdown-item colourSearch">blue</a>
+                  <a  value="gold" class="dropdown-item colourSearch">gold</a>
+                  <a  value="grey" class="dropdown-item colourSearch">grey</a>
+               </div>
+            </div>
+
+            <div class="col dropDown">
+               <button class='btn dropBtn' type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Size</button>
+               <div class="dropdown-menu sizeToSearch" aria-labelledby="dropdownMenuButton">
+                  <!-- add the size to the dropDown menu for the search -->
+                  <a  value="3" class="dropdown-item sizeSearch">3</a>
+                  <a  value="4" class="dropdown-item sizeSearch">4</a>
+                  <a  value="5" class="dropdown-item sizeSearch">5</a>
+                  <a  value="6" class="dropdown-item sizeSearch">6</a>
+                  <a  value="7" class="dropdown-item sizeSearch">7</a>
+                  <a  value="8" class="dropdown-item sizeSearch">8</a>
+               </div>
+            </div>
+            <div class='w-100'></div>
+            <button type="button" name="searchShoe" class='searchShoe'>Search Shoe</button>
          </div>
          <hr>
       </section>

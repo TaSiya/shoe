@@ -3,10 +3,95 @@ function ShoeCatalogue(storedMa, storedBas){
    var stock_map =[
       {
          brand : 'amateki',
+         colour : 'white',
+         size : 6,
+         in_stock : 7
+      },
+      {
+         brand : 'vovo',
+         colour : 'gold',
+         size : 3,
+         in_stock : 5
+      },
+      {
+         brand : 'china teki',
+         colour : 'yellow',
+         size : 5,
+         in_stock : 10
+      },
+      {
+         brand : 'amateki',
+         colour : 'black',
+         size : 6,
+         in_stock : 15
+      },
+      {
+         brand : 'amateki',
          colour : 'red',
          size : 6,
          in_stock : 10
+      },
+      {
+         brand : 'vovo',
+         colour : 'pink',
+         size : 7,
+         in_stock : 4
+      },
+      {
+         brand : 'china teki',
+         colour : 'red',
+         size : 5,
+         in_stock : 4
+      },
+      {
+         brand : 'phuma',
+         colour : 'red',
+         size : 6,
+         in_stock : 8
+      },
+      {
+         brand : 'originelz',
+         colour : 'pink',
+         size : 6,
+         in_stock : 7
+      },
+      {
+         brand : 'originelz',
+         colour : 'black',
+         size : 4,
+         in_stock : 12
+      },
+      {
+         brand : 'phuma',
+         colour : 'white',
+         size : 6,
+         in_stock : 10
+      },
+      {
+         brand : 'originelz',
+         colour : 'blue',
+         size : 5,
+         in_stock : 9
+      },
+      {
+         brand : 'amateki',
+         colour : 'blue',
+         size : 6,
+         in_stock : 13
+      },
+      {
+         brand : 'phuma',
+         colour : 'blue',
+         size : 3,
+         in_stock : 6
+      },
+      {
+         brand : 'vovo',
+         colour : 'blue',
+         size : 8,
+         in_stock : 6
       }
+
    ];
    var basket = [];
    var globalColour,globalBrand, globalSize, globalIn_stock,total_stock ;
@@ -77,7 +162,14 @@ function ShoeCatalogue(storedMa, storedBas){
       globalColour = shoe.colour || 'blue';
       globalBrand = shoe.brand || 'amateki';
       globalSize = shoe.size || 6;
-      globalIn_stock = shoe.in_stock || 1 ;
+      console.log(shoe.in_stock);
+      if(shoe.in_stock < 1 || shoe.in_stock === undefined){
+         globalIn_stock = 1;
+      }
+      else{
+         globalIn_stock = shoe.in_stock || 1 ;
+      }
+
    }
 
    function addStock(brandp,colourp,sizep,stockp){
@@ -153,5 +245,3 @@ function ShoeCatalogue(storedMa, storedBas){
 
 }
 var tester = ShoeCatalogue();
-console.log(tester.length());
-console.log(tester.stockShoes());

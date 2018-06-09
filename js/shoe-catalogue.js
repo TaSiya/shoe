@@ -1,11 +1,95 @@
-function ShoeCatalogue(stored){
+function ShoeCatalogue(storedMa, storedBas){
                         //Global variables
    var stock_map =[
+      {
+         brand : 'amateki',
+         colour : 'white',
+         size : 6,
+         in_stock : 7
+      },
+      {
+         brand : 'vovo',
+         colour : 'gold',
+         size : 3,
+         in_stock : 5
+      },
+      {
+         brand : 'china teki',
+         colour : 'yellow',
+         size : 5,
+         in_stock : 10
+      },
+      {
+         brand : 'amateki',
+         colour : 'black',
+         size : 6,
+         in_stock : 15
+      },
       {
          brand : 'amateki',
          colour : 'red',
          size : 6,
          in_stock : 10
+      },
+      {
+         brand : 'vovo',
+         colour : 'pink',
+         size : 7,
+         in_stock : 4
+      },
+      {
+         brand : 'china teki',
+         colour : 'red',
+         size : 5,
+         in_stock : 4
+      },
+      {
+         brand : 'phuma',
+         colour : 'red',
+         size : 6,
+         in_stock : 8
+      },
+      {
+         brand : 'originelz',
+         colour : 'pink',
+         size : 6,
+         in_stock : 7
+      },
+      {
+         brand : 'originelz',
+         colour : 'black',
+         size : 4,
+         in_stock : 12
+      },
+      {
+         brand : 'phuma',
+         colour : 'white',
+         size : 6,
+         in_stock : 10
+      },
+      {
+         brand : 'originelz',
+         colour : 'blue',
+         size : 5,
+         in_stock : 9
+      },
+      {
+         brand : 'amateki',
+         colour : 'blue',
+         size : 6,
+         in_stock : 13
+      },
+      {
+         brand : 'phuma',
+         colour : 'blue',
+         size : 3,
+         in_stock : 6
+      },
+      {
+         brand : 'vovo',
+         colour : 'blue',
+         size : 8,
+         in_stock : 6
       }
    ];
    var basket = [];
@@ -13,11 +97,18 @@ function ShoeCatalogue(stored){
 
    //Accessors and medofiers
 
-   function storedMap(stored){
-      if(stored){
-         stock_map = stored;
+   function storedMap(storedMa){
+      if(storedMa){
+         stock_map = storedMa;
       }
    }
+
+   function storedBasket(storedBas){
+      if(storedBas.length != 0){
+         basket = storedBas;
+      }
+   }
+
    function getAllShoes(){ return stock_map;}
    function getShoeslength(){ return stock_map.length;}
    function setShoesLength(value){ total_stock = value;}
@@ -70,7 +161,14 @@ function ShoeCatalogue(stored){
       globalColour = shoe.colour || 'blue';
       globalBrand = shoe.brand || 'amateki';
       globalSize = shoe.size || 6;
-      globalIn_stock = shoe.in_stock || 1 ;
+      console.log(shoe.in_stock);
+      if(shoe.in_stock < 1 || shoe.in_stock === undefined){
+         globalIn_stock = 1;
+      }
+      else{
+         globalIn_stock = shoe.in_stock || 1 ;
+      }
+
    }
 
    function addStock(brandp,colourp,sizep,stockp){
@@ -131,6 +229,7 @@ function ShoeCatalogue(stored){
 
    return{
       inStock : storedMap,
+      inStoredBasket : storedBasket,
       addingStock : addStock,
       stockShoes : getAllShoes,
       length : getShoeslength,
@@ -145,5 +244,3 @@ function ShoeCatalogue(stored){
 
 }
 var tester = ShoeCatalogue();
-console.log(tester.length());
-console.log(tester.stockShoes());

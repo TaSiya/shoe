@@ -1,0 +1,96 @@
+:root{
+   --darkShadow : 2px 5px 3px rgba(0, 0, 0, 0.8);
+   --darkShadow2 : 5px -2px 3px rgba(0, 0, 0, 0.5);
+   --dark : #333;
+   --white : #fff;
+   --light : #eee;
+
+   --rem : 1rem;
+   --halfRem : 0.5rem;
+}
+
+body{
+   line-height: 1.5rem;
+   color : var(--dark);
+}
+
+h1, h2, h3, h4{
+   width:100%;
+   font-style: italic;
+   text-align: center;
+}
+
+.container-fluid{
+   background-color: var(--light);
+   box-shadow: var(--darkShadow);
+}
+
+.sections{
+   margin : 0 var(--rem);
+}
+
+                              /* Header */
+header{
+   background-color: var(--dark);
+   color:  #ddd;
+   text-align: center;
+   text-shadow: var(--darkShadow2);
+   font-style: italic;
+   box-shadow: var(--darkShadow);
+   margin-bottom: var(--halfRem);
+}
+header p{
+   text-decoration:underline;
+   color: crimson;
+   display: inline-block;
+   text-shadow: var(--darkShadow);
+   font-style: italic;
+}
+
+.fa-cart-plus:hover{
+   color:green;
+}
+
+.cartDropDowns{
+   text-align: right;
+}
+
+
+/* addingStock */
+
+input{
+   margin-right : var(--rem);
+   border-radius: 5px;
+}
+
+.addingStock{
+
+}
+
+.ad{
+   text-align: center;
+}
+.ad button{
+   width : 10rem;
+   border-radius: 8px;
+}
+
+.ad button:hover{
+   background-color: green;
+   color: cyan;
+   font-weight: bold;
+}
+
+.addingStock .boxes{
+   margin-bottom: var(--rem);
+
+}
+.addingStock button{
+   text-align: center;
+}
+
+/* Search section */
+.dropDown{
+   /* for the items in the dropdown menu to be aligh with each other */
+   position:relative;
+}

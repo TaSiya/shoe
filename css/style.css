@@ -90,7 +90,20 @@ input{
 }
 
 /* Search section */
-.dropDown{
+.searchBrand{
+   height: 200px;
+}
+
+.searchBrand .searchBtns{
+   margin-bottom: 1rem;
+}
+
+.searchBrand .searchShoe{
+   width: 50%;
+   margin: auto;
+}
+
+.searchBrand .dropDown{
    /* for the items in the dropdown menu to be aligh with each other */
    position:relative;
 }

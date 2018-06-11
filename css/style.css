@@ -53,8 +53,10 @@ header p{
    color:green;
 }
 
-.cartDropDowns{
-   text-align: right;
+/* not really finished styling because not sure what to use to display my items */
+.card{
+   display: block;
+
 }
 
 

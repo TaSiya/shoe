@@ -11,7 +11,7 @@
    <script defer src="https://use.fontawesome.com/releases/v5.0.11/js/all.js" integrity="sha384-ImVoB8Er8knetgQakxuBS4G3RSkyD8IZVVQCAnmRJrDwqJFYUE4YOv+DbIofcO9C" crossorigin="anonymous"></script>
    <link rel="stylesheet" href="css/style.css">
    <script src="js/handlebars.runtime-v4.0.11.js"></script>
-   <script type="text/x-template" class='stockDisplayTemplate' charset="utf-8">
+   <script type="text/x-template" class='stockTemplate' charset="utf-8">
       {{#each stockData cartList}}
       <tr>
          <td>{{brand}}</td>
@@ -20,9 +20,6 @@
          <td>{{stock}}</td>
       </tr>
 
-      <!-- <a href="#{{brand}}" value="{{brand}}" name="{{brand}}" class="{{brand}}Search dropdown-item">{{brand}}</a>
-      <a href="#{{colour}}" value="{{colour}}" name="{{colour}}" class="{{colour}}Search dropdown-item">{{colour}}</a>
-      <a href="#{{size}}" value="{{size}}" name="{{size}}" class="{{size}}Search dropdown-item">{{size}}</a> -->
       <<a href="#Thecart">{{cartItems}}</a>
       {{/each}}
    </script>
@@ -76,7 +73,7 @@
             </div>
             <div class="w-100"></div>
             <div class="col ad">
-               <button type="button" name="addStock" class='addStock'>Add stock</button>
+               <button type="button" name="addToStockBtn" class='addToStockBtn'>Add stock</button>
             </div>
 
          </div>
@@ -119,19 +116,19 @@
                   <div class="dropdown-menu sizeToSearch" aria-labelledby="dropdownMenuButton">
                      <!-- add the size to the dropDown menu for the search -->
                      <select >
-                        <option  value="3" class="dropdown-item sizeSearch">3</option>
-                        <option  value="4" class="dropdown-item sizeSearch">4</option>
-                        <option  value="5" class="dropdown-item sizeSearch">5</option>
-                        <option  value="6" class="dropdown-item sizeSearch">6</option>
-                        <option  value="7" class="dropdown-item sizeSearch">7</option>
-                        <option  value="8" class="dropdown-item sizeSearch">8</option>
+                        <a  value="3" class="dropdown-item sizeSearch">3</a>
+                        <a  value="4" class="dropdown-item sizeSearch">4</a>
+                        <a  value="5" class="dropdown-item sizeSearch">5</a>
+                        <a  value="6" class="dropdown-item sizeSearch">6</a>
+                        <a  value="7" class="dropdown-item sizeSearch">7</a>
+                        <a  value="8" class="dropdown-item sizeSearch">8</a>
                      </select>
                   </div>
                </div>
 
             </div>
             <div class='w-100'></div>
-            <button type="button" name="searchShoe" class='searchShoe'>Search Shoe</button>
+            <button type="button" name="searchShoeBtn" class='searchShoeBtn'>Search Shoe</button>
          </div>
 
       </section>
@@ -149,7 +146,7 @@
             </thead>
 
             <tbody class= "myStockDisplay">
-               
+
             </tbody>
          </table>
       </section>

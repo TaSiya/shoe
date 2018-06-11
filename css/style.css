@@ -16,6 +16,8 @@ body{
 
 }
 
+
+
 h1, h2, h3, h4{
    width:100%;
    font-style: italic;
@@ -126,6 +128,8 @@ input{
 .myStockDisplay, table{
    width: 100%;
    margin: auto;
+   font-size: 22px;
+   font-weight: bold;
    text-align: center;
    font-style: italic;
 }
@@ -137,11 +141,6 @@ input{
 }
 .myStockDisplay td:nth-child(1){
    font-weight: bold;
-   background-color:#000a;
-   color:var(--white);
-}
-.myStockDisplay tr:nth-child(even){
-   background-color: var(--darkLight);
 }
 
 /* Footer */
@@ -155,6 +154,17 @@ footer, p{
    margin-top: var(--halfRem);
 
 }
+
+/* Colours for the handlebars to use */
+.yellow{background-color: yellow;}
+.red{background-color: red;}
+.blue{background-color: blue;color:white;}
+.gold{background-color: gold;}
+.black{background-color: black;color:white;}
+.white{background-color: white; color: black;}
+.pink{background-color: pink;}
+
+
 
 /* Extra small devices (portrait phones, less than 576px)
 No media query for `xs` since this is the default in Bootstrap */

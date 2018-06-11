@@ -98,7 +98,7 @@ function ShoeCatalogue(storedMa, storedBas){
    //Accessors and medofiers
 
    function storedMap(storedMa){
-      if(storedMa){
+      if(storedMa.length != 0){
          stock_map = storedMa;
       }
    }

@@ -2,6 +2,7 @@
    --darkShadow : 2px 5px 3px rgba(0, 0, 0, 0.8);
    --darkShadow2 : 5px -2px 3px rgba(0, 0, 0, 0.5);
    --dark : #333;
+   --darkLight : #ddd;
    --white : #fff;
    --light : #eee;
 
@@ -32,7 +33,7 @@ h1, h2, h3, h4{
                               /* Header */
 header{
    background-color: var(--dark);
-   color:  #ddd;
+   color:  var(--darkLight);
    text-align: center;
    text-shadow: var(--darkShadow2);
    font-style: italic;
@@ -90,9 +91,9 @@ input{
 }
 
 /* Search section */
-.searchBrand{
+/* .searchBrand{
    height: 200px;
-}
+} */
 
 .searchBrand .searchBtns{
    width: 90;
@@ -109,3 +110,50 @@ input{
    /* for the items in the dropdown menu to be aligh with each other */
    position:relative;
 }
+
+/* Current Stock display */
+.myStockDisplay{
+   text-align: center;
+   font-style: italic;
+}
+.myStockDisplay,th{
+   padding: 0.5rem 1.2rem;
+}
+.myStockDisplay td{
+   padding: 0.5rem 0;
+}
+.myStockDisplay td:nth-child(1){
+   font-weight: bold;
+   background-color:#000a;
+   color:var(--white);
+}
+.myStockDisplay tr:nth-child(even){
+   background-color: var(--darkLight);
+}
+
+/* Footer */
+footer, p{
+   text-align: center;
+   font-size: 12px;
+   background-color: var(--dark);
+   color: var(--light);
+   margin: 0;
+   padding: 0;
+   margin-top : 0.5rem;
+
+}
+
+/* Extra small devices (portrait phones, less than 576px)
+No media query for `xs` since this is the default in Bootstrap */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { ... }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { ... }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { ... }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { ... }

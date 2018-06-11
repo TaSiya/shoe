@@ -24,7 +24,7 @@ h1, h2, h3, h4{
 
 .container{
    background-color: var(--light);
-   margin: auto;
+   box-shadow: var(--darkShadow);
 }
 
 .sections{
@@ -91,20 +91,27 @@ input{
    text-align: center;
 }
 
+.labels{
+   font-weight: bold;
+   font-style: oblique;
+   text-decoration: underline;
+}
+
 /* Search section */
 /* .searchBrand{
    height: 200px;
 } */
 
 .searchBrand .searchBtns{
-   width: 90;
+   width: 90%;
    margin: auto;
-   margin-bottom: 1rem;
+   margin-bottom: var(--rem);
 }
 
 .searchBrand .searchShoe{
    width: 50%;
    margin: auto;
+   border-radius: 8px;
 }
 
 .searchBrand .dropDown{
@@ -113,6 +120,7 @@ input{
 }
 
 /* Current Stock display */
+
 .myStockDisplay, table{
    width: 100%;
    margin: auto;
@@ -142,7 +150,7 @@ footer, p{
    color: var(--light);
    margin: 0;
    padding: 0;
-   margin-top : 0.5rem;
+   margin-top: var(--halfRem);
 
 }
 
@@ -151,12 +159,30 @@ No media query for `xs` since this is the default in Bootstrap */
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
+   .labels{
+      padding-left: 5rem;
 
+   }
+
+   .searchBrand .searchBtns{
+      width: 80%;
+      margin: auto;
+      margin-bottom: var(--rem);
+   }
+
+   .searchBrand .searchShoe{
+      width: 30%;
+      margin: auto;
+   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-
+   .searchBrand .searchBtns{
+      width: 70%;
+      margin: auto;
+      margin-bottom: var(--rem);
+   }
 }
 
 /* Large devices (desktops, 992px and up) */

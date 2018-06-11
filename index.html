@@ -59,20 +59,20 @@
             <div class="col boxes">
 
                <input type="input" name="brandAdd" class='brandAdd' placeholder="Brand name">
-               <span>Brand</span>
+               <span class='labels'>Brand</span>
             </div>
             <div class="col boxes">
 
                <input type="input" name="colourAdd" class='colourAdd' placeholder="Colour of the shoe">
-               <span>Colour</span>
+               <span class='labels'>Colour</span>
             </div>
             <div class="col boxes">
                <input type="number" name="sizeAdd" class='sizeAdd' placeholder="Enter shoe size">
-               <span>Size</span>
+               <span class='labels'>Size</span>
             </div>
             <div class="col boxes">
                <input type="number" name="stockAdd" class='stockAdd' placeholder="how many stock">
-               <span>Stock</span>
+               <span class='labels'>Stock</span>
             </div>
             <div class="w-100"></div>
             <div class="col ad">
@@ -137,6 +137,7 @@
       </section>
       <hr>
       <section class="displayStock">
+         <h4>Current Stock</h4>
          <table>
             <thead>
                <tr>
@@ -148,18 +149,7 @@
             </thead>
 
             <tbody class= "myStockDisplay">
-               <tr>
-                  <td>{{brand}}</td>
-                  <td>{{colour}}</td>
-                  <td>{{size}}</td>
-                  <td>{{stock}}</td>
-               </tr>
-               <tr>
-                  <td>{{brand}}</td>
-                  <td>{{colour}}</td>
-                  <td>{{size}}</td>
-                  <td>{{stock}}</td>
-               </tr>
+               
             </tbody>
          </table>
       </section>

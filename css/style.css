@@ -17,132 +17,6 @@ body{
 }
 
 
-
-h1, h2, h3, h4{
-   width:100%;
-   font-style: italic;
-   text-align: center;
-}
-
-.container{
-   background-color: var(--light);
-   box-shadow: var(--darkShadow);
-}
-
-.sections{
-   margin : 0 var(--rem);
-}
-
-                              /* Header */
-header{
-   background-color: var(--dark);
-   color:  var(--darkLight);
-   text-align: center;
-   text-shadow: var(--darkShadow2);
-   font-style: italic;
-   box-shadow: var(--darkShadow);
-   margin-bottom: var(--halfRem);
-}
-header p{
-   text-decoration:underline;
-   color: crimson;
-   display: inline-block;
-   text-shadow: var(--darkShadow);
-   font-style: italic;
-}
-
-.fa-cart-plus:hover{
-   color:green;
-}
-
-/* not really finished styling because not sure what to use to display my items */
-.card{
-   display: block;
-
-}
-
-
-/* addingStock */
-
-input{
-   margin-right : var(--rem);
-   border-radius: 5px;
-}
-
-.addingStock{
-
-}
-
-.ad{
-   text-align: center;
-}
-.ad button{
-   width : 10rem;
-   border-radius: 8px;
-}
-
-.ad button:hover{
-   background-color: green;
-   color: cyan;
-   font-weight: bold;
-}
-
-.addingStock .boxes{
-   margin-bottom: var(--rem);
-
-}
-.addingStock button{
-   text-align: center;
-}
-
-.labels{
-   font-weight: bold;
-   font-style: oblique;
-   text-decoration: underline;
-}
-
-/* Search section */
-/* .searchBrand{
-   height: 200px;
-} */
-
-.searchBrand .searchBtns{
-   width: 90%;
-   margin: auto;
-   margin-bottom: var(--rem);
-}
-
-.searchBrand .searchShoe{
-   width: 50%;
-   margin: auto;
-   border-radius: 8px;
-}
-
-.searchBrand .dropDown{
-   /* for the items in the dropdown menu to be aligh with each other */
-   position:relative;
-}
-
-/* Current Stock display */
-
-.myStockDisplay, table{
-   width: 100%;
-   margin: auto;
-   font-size: 22px;
-   font-weight: bold;
-   text-align: center;
-   font-style: italic;
-}
-.myStockDisplay,th{
-   padding: 0.5rem 1.2rem;
-}
-.myStockDisplay td{
-   padding: 0.5rem 0;
-}
-.myStockDisplay td:nth-child(1){
-   font-weight: bold;
-}
-
 /* Footer */
 footer, p{
    text-align: center;
@@ -155,46 +29,18 @@ footer, p{
 
 }
 
-/* Colours for the handlebars to use */
-.yellow{background-color: yellow;}
-.red{background-color: red;}
-.blue{background-color: blue;color:white;}
-.gold{background-color: gold;}
-.black{background-color: black;color:white;}
-.white{background-color: white; color: black;}
-.pink{background-color: pink;}
-
-
-
 /* Extra small devices (portrait phones, less than 576px)
 No media query for `xs` since this is the default in Bootstrap */
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-   .labels{
-      padding-left: 5rem;
 
-   }
 
-   .searchBrand .searchBtns{
-      width: 80%;
-      margin: auto;
-      margin-bottom: var(--rem);
-   }
-
-   .searchBrand .searchShoe{
-      width: 30%;
-      margin: auto;
-   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-   .searchBrand .searchBtns{
-      width: 70%;
-      margin: auto;
-      margin-bottom: var(--rem);
-   }
+   
 }
 
 /* Large devices (desktops, 992px and up) */

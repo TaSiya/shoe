@@ -99,7 +99,7 @@ function ShoeCatalogue(storedMa, storedBas){
 
    function storedMap(storedMa){
       if(storedMa){
-         stock_map = storedMa;
+         stock_map = storedMa; 
       }
    }
 

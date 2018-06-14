@@ -12,12 +12,27 @@
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
       <script type="text/x-template" charset="utf-8">
-         {{#each}}
+         {{#each stock_mapz}}
          <tr>
             <td>{{brand}}</td>
             <td>{{colour}}</td>
             <td>{{size}}</td>
          </tr>
+
+         <div class="four columns">
+            <div class="card">
+               <img src="img/{{brand}}.jpg" class="course-image u-full-width">
+               <div class="info-card">
+                   <h4>{{brand}}</h4>
+                   <div class='colour-Style {{colour}}'></div> <span class=''>size : {{size}}</span>
+                   <div class="u-cf"></div>
+                   <p class="price">{{old_price}} <span class="u-pull-right ">{{price}}</span></p>
+                   <h4>Stock : {{in_stock}}</h4>
+                   <a href="#" class="u-full-width button-primary button input add-to-cart" data-id="{{id}}">Add to Cart</a>
+               </div>
+            </div>
+         </div>
+
          {{/each}}
       </script>
    <title>Shoe Catalogue</title>
@@ -64,7 +79,7 @@
                <h3>All shoes on special</h3>
 
             </div>
-            <div class="four colums">
+            <div class="four columns">
                <form class="Search-form" action="index.html" method="post">
                   <input type="text"  name="searchShoe">
                   <input type="submit"class="searchShoe" name="searchShoeBtn">
@@ -72,26 +87,49 @@
             </div>
          </div>
       </div>
-   </div
+   </div>
 
-   <div class="main-bar">
+   <div class="container">
+      <div class="row">
+         <div class="four columns main-sub">
+            <p>All shoes are second hand</p>
+         </div>
+         <div class="four columns main-sub">
+            <p>There are no refunds for purchase</p>
+         </div>
+         <div class="four columns main-sub">
+            <p>We take any payment method</p>
+         </div>
+      </div>
+   </div>
+
+   <div class="container" id="shoe-list">
+      <h3>Available Stock</h3>
+      <div class="row" id='current-stock'>
+
+      </div>
+   </div>
+
+   <footer id="footer" class="footer">
       <div class="container">
            <div class="row">
-                   <div class="four columns icon icon1">
-                       <p>All shoes are second Hand !</p>
+                   <div class="four columns">
+                           <nav id="primary" class="menu">
+                              <a class="link" href="#">For Business</a>
+                              <a class="link" href="#">Location</a>
+                              <a class="link" href="#">Support</a>
+                           </nav>
                    </div>
-                   <div class="four columns icon icon2">
-                       <p>Expert Instructors<br>
-                       Learn with different teach styles</p>
-                   </div>
-                   <div class="four columns icon icon3">
-                       <p>Lifetime access <br>
-                       learn at your own pace</p>
+                   <div class="four columns">
+                           <nav id="secondary" class="menu">
+                              <a class="link" href="#">About Us</a>
+                              <a class="link" href="#">Work with us</a>
+                              <a class="link" href="#">Blog</a>
+                           </nav>
                    </div>
            </div>
       </div>
-
-   </div>
+   </footer>
 
 </body>
 </html>

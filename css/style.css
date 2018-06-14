@@ -1,6 +1,7 @@
 :root{
    --darkShadow : 2px 5px 3px rgba(0, 0, 0, 0.8);
    --darkShadow2 : 5px -2px 3px rgba(0, 0, 0, 0.5);
+   --shadow : 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
    --dark : #333;
    --darkLight : #ddd;
    --white : #fff;
@@ -16,9 +17,46 @@ body{
 
 }
 
+header h1{
+   background-color: var(--light);
+   color: var(--dark);
+   text-shadow: var(--darkShadow2);
+   font-style: italic;
+   font-weight: bold;
+}
+
+.main-sub{
+   background-color: var(--light);
+   box-shadow: var(--shadow);
+   margin-top : 2rem;
+   padding-top : 2rem;
+   text-align: center;
+}
+
+.colour-Style{
+  float:right;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+/* All the shoe colours ikn stock */
+.red{ background-color: red; color : var(--white);}
+.blue{ background-color: blue; color : var(--white);}
+.orange { background-color: orange; color : var(--white);}
+.gold {background-color: gold; color : var(--white);}
+.pink { background-color: pink; color : var(--white);}
+.white { background-color: white; color : var(--white);}
+.black { background-color: black; color : var(--white);}
+.purple { background-color: purple; color : var(--white);}
+.yellow { background-color: yellow; color : var(--white);}
+.silver { background-color: silver; color : var(--white);}
+.green { background-color: green; color : var(--white);}
+.crimson { background-color: crimson; color : var(--white);}
+
 
 /* Footer */
-footer, p{
+footer p{
    text-align: center;
    font-size: 12px;
    background-color: var(--dark);
@@ -40,7 +78,7 @@ No media query for `xs` since this is the default in Bootstrap */
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-   
+
 }
 
 /* Large devices (desktops, 992px and up) */

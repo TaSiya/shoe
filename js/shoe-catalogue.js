@@ -5,90 +5,120 @@ function ShoeCatalogue(storedMa, storedBas){
          brand : 'amateki',
          colour : 'white',
          size : 6,
+         new_price : 400,
+         old_price : 550,
          in_stock : 7
       },
       {
          brand : 'vovo',
          colour : 'gold',
          size : 3,
+         new_price : 200,
+         old_price : 350,
          in_stock : 5
       },
       {
          brand : 'china teki',
          colour : 'yellow',
          size : 5,
+         new_price : 250,
+         old_price : 450,
          in_stock : 10
       },
       {
          brand : 'amateki',
          colour : 'black',
          size : 6,
+         new_price : 400,
+         old_price : 550,
          in_stock : 15
       },
       {
          brand : 'amateki',
          colour : 'red',
          size : 6,
+         new_price : 400,
+         old_price : 550,
          in_stock : 10
       },
       {
          brand : 'vovo',
          colour : 'pink',
          size : 7,
+         new_price : 200,
+         old_price : 350,
          in_stock : 4
       },
       {
          brand : 'china teki',
          colour : 'red',
          size : 5,
+         new_price : 250,
+         old_price : 450,
          in_stock : 4
       },
       {
          brand : 'phuma',
          colour : 'red',
          size : 6,
+         new_price : 520,
+         old_price : 700,
          in_stock : 8
       },
       {
          brand : 'originelz',
          colour : 'pink',
          size : 6,
+         new_price : 320,
+         old_price : 410,
          in_stock : 7
       },
       {
          brand : 'originelz',
          colour : 'black',
          size : 4,
+         new_price : 320,
+         old_price : 410,
          in_stock : 12
       },
       {
          brand : 'phuma',
          colour : 'white',
          size : 6,
+         new_price : 520,
+         old_price : 700,
          in_stock : 10
       },
       {
          brand : 'originelz',
          colour : 'blue',
          size : 5,
+         new_price : 320,
+         old_price : 410,
          in_stock : 9
       },
       {
          brand : 'amateki',
          colour : 'blue',
          size : 6,
+         new_price : 400,
+         old_price : 550,
          in_stock : 13
       },
       {
          brand : 'phuma',
          colour : 'blue',
          size : 3,
+         new_price : 520,
+         old_price : 700,
          in_stock : 6
       },
       {
          brand : 'vovo',
          colour : 'blue',
          size : 8,
+         new_price : 200,
+         old_price : 350,
          in_stock : 6
       }
    ];
@@ -99,7 +129,7 @@ function ShoeCatalogue(storedMa, storedBas){
 
    function storedMap(storedMa){
       if(storedMa){
-         stock_map = storedMa; 
+         stock_map = storedMa;
       }
    }
 
@@ -128,6 +158,21 @@ function ShoeCatalogue(storedMa, storedBas){
          }
       }
       return total;
+   }
+
+   function basketTotal(){
+      var total = 0 ;
+      var i = 0 ;
+
+      if(basket.length <= 0){
+         return total;
+      }
+      else{
+         for(i ; i < basket.length ; i++){
+            total = total + basket[i].new_price ;
+         }
+         return total;
+      }
    }
 
    function searchAllShoeBrand(theBrand){

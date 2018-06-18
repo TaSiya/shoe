@@ -1,6 +1,7 @@
 :root{
    --darkShadow : 2px 5px 3px rgba(0, 0, 0, 0.8);
    --darkShadow2 : 5px -2px 3px rgba(0, 0, 0, 0.5);
+   --shadow : 0px 0px 0px 1px rgba(0, 0, 0, 0.3);
    --dark : #333;
    --darkLight : #ddd;
    --white : #fff;
@@ -16,135 +17,49 @@ body{
 
 }
 
-
-
-h1, h2, h3, h4{
-   width:100%;
-   font-style: italic;
-   text-align: center;
-}
-
-.container{
+header h1{
    background-color: var(--light);
-   box-shadow: var(--darkShadow);
-}
-
-.sections{
-   margin : 0 var(--rem);
-}
-
-                              /* Header */
-header{
-   background-color: var(--dark);
-   color:  var(--darkLight);
-   text-align: center;
+   color: var(--dark);
    text-shadow: var(--darkShadow2);
    font-style: italic;
-   box-shadow: var(--darkShadow);
-   margin-bottom: var(--halfRem);
-}
-header p{
-   text-decoration:underline;
-   color: crimson;
-   display: inline-block;
-   text-shadow: var(--darkShadow);
-   font-style: italic;
-}
-
-.fa-cart-plus:hover{
-   color:green;
-}
-
-/* not really finished styling because not sure what to use to display my items */
-.card{
-   display: block;
-
-}
-
-
-/* addingStock */
-
-input{
-   margin-right : var(--rem);
-   border-radius: 5px;
-}
-
-.addingStock{
-
-}
-
-.ad{
-   text-align: center;
-}
-.ad button{
-   width : 10rem;
-   border-radius: 8px;
-}
-
-.ad button:hover{
-   background-color: green;
-   color: cyan;
    font-weight: bold;
 }
 
-.addingStock .boxes{
-   margin-bottom: var(--rem);
-
-}
-.addingStock button{
+.main-sub{
+   background-color: var(--light);
+   box-shadow: var(--shadow);
+   margin-top : 2rem;
+   padding-top : 2rem;
    text-align: center;
 }
 
-.labels{
-   font-weight: bold;
-   font-style: oblique;
-   text-decoration: underline;
+.displayTotal{
+   font-size: 20px;
 }
+.colour-Style{
+  float:right;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
+}
+/* All the shoe colours ikn stock */
+.red{ background-color: red; color : var(--white);}
+.blue{ background-color: blue; color : var(--white);}
+.orange { background-color: orange; color : var(--white);}
+.gold {background-color: gold; color : var(--white);}
+.pink { background-color: pink; color : var(--white);}
+.white { background-color: white; color : var(--white);}
+.black { background-color: black; color : var(--white);}
+.purple { background-color: purple; color : var(--white);}
+.yellow { background-color: yellow; color : var(--white);}
+.silver { background-color: silver; color : var(--white);}
+.green { background-color: green; color : var(--white);}
+.crimson { background-color: crimson; color : var(--white);}
 
-/* Search section */
-/* .searchBrand{
-   height: 200px;
-} */
-
-.searchBrand .searchBtns{
-   width: 90%;
-   margin: auto;
-   margin-bottom: var(--rem);
-}
-
-.searchBrand .searchShoe{
-   width: 50%;
-   margin: auto;
-   border-radius: 8px;
-}
-
-.searchBrand .dropDown{
-   /* for the items in the dropdown menu to be aligh with each other */
-   position:relative;
-}
-
-/* Current Stock display */
-
-.myStockDisplay, table{
-   width: 100%;
-   margin: auto;
-   font-size: 22px;
-   font-weight: bold;
-   text-align: center;
-   font-style: italic;
-}
-.myStockDisplay,th{
-   padding: 0.5rem 1.2rem;
-}
-.myStockDisplay td{
-   padding: 0.5rem 0;
-}
-.myStockDisplay td:nth-child(1){
-   font-weight: bold;
-}
 
 /* Footer */
-footer, p{
+footer p{
    text-align: center;
    font-size: 12px;
    background-color: var(--dark);
@@ -155,46 +70,18 @@ footer, p{
 
 }
 
-/* Colours for the handlebars to use */
-.yellow{background-color: yellow;}
-.red{background-color: red;}
-.blue{background-color: blue;color:white;}
-.gold{background-color: gold;}
-.black{background-color: black;color:white;}
-.white{background-color: white; color: black;}
-.pink{background-color: pink;}
-
-
-
 /* Extra small devices (portrait phones, less than 576px)
 No media query for `xs` since this is the default in Bootstrap */
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-   .labels{
-      padding-left: 5rem;
 
-   }
 
-   .searchBrand .searchBtns{
-      width: 80%;
-      margin: auto;
-      margin-bottom: var(--rem);
-   }
-
-   .searchBrand .searchShoe{
-      width: 30%;
-      margin: auto;
-   }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-   .searchBrand .searchBtns{
-      width: 70%;
-      margin: auto;
-      margin-bottom: var(--rem);
-   }
+
 }
 
 /* Large devices (desktops, 992px and up) */

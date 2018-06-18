@@ -7,34 +7,41 @@
 
    <link rel="stylesheet" href="css/normalize.css">
    <link rel="stylesheet" href="css/skeleton.css">
-   <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/custom.css">
+   <link rel="stylesheet" href="css/style.css">
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
-      <script type="text/x-template" charset="utf-8">
-         {{#each stock_mapz}}
-         <tr>
-            <td>{{brand}}</td>
-            <td>{{colour}}</td>
-            <td>{{size}}</td>
-         </tr>
+      <script type="text/x-template" class='cartTemplate'>
+         {{#each cart_map}}
+            <tr>
+               <td>{{brand}}</td>
+               <td>{{colour}}</td>
+               <td>{{size}}</td>
+               <td>{{new_price}}</td>
+            </tr>
+         {{/each}}
 
-         <div class="four columns">
-            <div class="card">
-               <img src="img/{{brand}}.jpg" class="course-image u-full-width">
-               <div class="info-card">
-                   <h4>{{brand}}</h4>
-                   <div class='colour-Style {{colour}}'></div> <span class=''>size : {{size}}</span>
-                   <div class="u-cf"></div>
-                   <p class="price">{{old_price}} <span class="u-pull-right ">{{price}}</span></p>
-                   <h4>Stock : {{in_stock}}</h4>
-                   <a href="#" class="u-full-width button-primary button input add-to-cart" data-id="{{id}}">Add to Cart</a>
+      </script>
+
+      <script type="x-template" class="stockTemplate">
+         {{#each stock_map}}
+            <div class="four columns">
+               <div class="card">
+                  <img src="img/{{brand}}.jpg" class="course-image u-full-width">
+                  <div class="info-card">
+                      <h4>{{brand}}</h4>
+                      <div class='colour-Style {{colour}}'></div> <span class=''>size : {{size}}</span>
+                      <div class="u-cf"></div>
+                      <p class="price">{{old_price}} <span class="u-pull-right ">{{price}}</span></p>
+                      <h4>Stock : {{in_stock}}</h4>
+                      <a href="#" class="u-full-width button-primary button input add-to-cart" data-id="{{id}}">Add to Cart</a>
+                  </div>
                </div>
             </div>
-         </div>
-
          {{/each}}
       </script>
+
+
    <title>Shoe Catalogue</title>
 </head>
 <body>
@@ -54,15 +61,15 @@
                                                <tr>
                                                    <th>Image</th>
                                                    <th>Name</th>
+                                                   <th>Size</th>
                                                    <th>Price</th>
-                                                   <th></th>
                                                </tr>
                                            </thead>
                                            <tbody class='displayCart'>
 
                                            </tbody>
                                        </table>
-
+                                       <h4 class='displayTotal'></h4>
                                        <a href="#" id="clear-cart" class="button u-full-width">Clear Cart</a>
                                </div>
                        </li>
@@ -105,7 +112,7 @@
 
    <div class="container" id="shoe-list">
       <h3>Available Stock</h3>
-      <div class="row" id='current-stock'>
+      <div class="row myStockDisplay" id='current-stock'>
 
       </div>
    </div>
@@ -132,4 +139,6 @@
    </footer>
 
 </body>
+<script src='js/shoe-catalogue.js' charset="utf-8"></script>
+<script src='js/shoe-dom.js' charset="utf-8"></script>
 </html>

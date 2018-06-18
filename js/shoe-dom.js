@@ -1,14 +1,16 @@
 // All References for the show Catalogue
 
-var stockTemplate = document.querySelector('.stockTemplate').innerHTML; //template reference
-var card = document.querySelector('.card'); // cart
+var cartTemplate = document.querySelector('.cartTemplate').innerHTML; //template reference
+var stockTemplate = document.querySelector('.stockTemplate').innerHTML;
 var myStockDisplay = document.querySelector('.myStockDisplay'); //Display current stock
+var displayCart = document.querySelector('.displayCart'); // Display the cart
 
 // input references
 var brandAdd = document.querySelector('.brandAdd'); //brand to add
 var colourAdd = document.querySelector('.colourAdd'); // colour of brand
 var sizeAdd = document.querySelector('.sizeAdd'); // size of brand
 var stockAdd = document.querySelector('.stockAdd'); // stock of the brand
+var displayTotal = document.querySelector('.displayTotal'); // Display total in basket
 
 var addToStockBtn = document.querySelector('.addToStockBtn'); //adding the brand to the stock
 
@@ -24,18 +26,29 @@ var storedBasket = localStorage.getItem('cart') ? JSON.parse(localStorage.getIte
 // Instance if the factory function
 var shoeApp = ShoeCatalogue(storedStock,storedBasket);
 
-var templateCompiler = Handlebars.compile(stockTemplate);
+var templateCompiler = Handlebars.compile(cartTemplate);
+var templateCompilerStock = Handlebars.compile(stockTemplate);
 
-window.addEventListener('load', function(){
+document.addEventListener('DOMContentLoaded', function(){
+
+
+   compileCart(shoeApp.inBasket());
    compileMe(shoeApp.stockShoes());
 });
-
-
 
 function compileMe(listToCompile){
    var data = {
       stock_map : listToCompile
    }
-   var compiled = templateCompiler(data);
+   var compiled = templateCompilerStock(data);
    myStockDisplay.innerHTML = compiled;
+}
+
+function compileCart(listToCompile){
+   var data = {
+      cart_map : listToCompile
+   }
+   var compiled = templateCompiler(data);
+   displayCart.innerHTML = compiled;
+   displayTotal.innerHTML = "R  "+shoeApp.totalPrice();
 }

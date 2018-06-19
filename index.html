@@ -5,6 +5,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
    <link rel="stylesheet" href="css/normalize.css">
    <link rel="stylesheet" href="css/skeleton.css">
    <link rel="stylesheet" href="css/custom.css">
@@ -14,10 +16,12 @@
       <script type="text/x-template" class='cartTemplate'>
          {{#each cart_map}}
             <tr>
+                <td><img src="img/{{brand}}.jpg" class="course-image u-full-width"></td>
                <td>{{brand}}</td>
                <td>{{colour}}</td>
                <td>{{size}}</td>
                <td>{{new_price}}</td>
+               <td><a href="#removed" class="remove">X</a></td>
             </tr>
          {{/each}}
 
@@ -25,16 +29,17 @@
 
       <script type="x-template" class="stockTemplate">
          {{#each stock_map}}
-            <div class="four columns">
+            <div class="three columns">
                <div class="card">
                   <img src="img/{{brand}}.jpg" class="course-image u-full-width">
                   <div class="info-card">
                       <h4>{{brand}}</h4>
-                      <div class='colour-Style {{colour}}'></div> <span class=''>size : {{size}}</span>
+                      <p>size : {{size}}</p>
+                      <p class="colour-Style {{colour}}"></p> 
                       <div class="u-cf"></div>
-                      <p class="price">{{old_price}} <span class="u-pull-right ">{{price}}</span></p>
+                      <p class="price">R{{old_price}} <span class="u-pull-right ">R{{new_price}}</span></p>
                       <h4>Stock : {{in_stock}}</h4>
-                      <a href="#" class="u-full-width button-primary button input add-to-cart" data-id="{{id}}">Add to Cart</a>
+                      <a href="#added" class="u-full-width button-primary button input add-to-cart" data-id="{{id}}">Add to Cart</a>
                   </div>
                </div>
             </div>
@@ -54,22 +59,24 @@
                <div class="two columns u-pull-right">
                    <ul>
                        <li class="submenu">
-                               <h3>Cart</h3>
+                        <p><i class="fas fa-cart-arrow-down fa-3x"></i> (<span class="itemsCount"></span>)</p>
                                <div id="shopping-cart">
+                                    <h4 class='displayTotal'></h4>
                                        <table id="cart-content" class="u-full-width">
                                            <thead>
                                                <tr>
                                                    <th>Image</th>
-                                                   <th>Name</th>
+                                                   <th>Brand</th>
+                                                   <th>Colour</th>
                                                    <th>Size</th>
                                                    <th>Price</th>
                                                </tr>
                                            </thead>
                                            <tbody class='displayCart'>
-
+                                                
                                            </tbody>
                                        </table>
-                                       <h4 class='displayTotal'></h4>
+                                       
                                        <a href="#" id="clear-cart" class="button u-full-width">Clear Cart</a>
                                </div>
                        </li>
@@ -81,32 +88,21 @@
 
    <div class="showcase">
       <div class="container">
-         <div class="row">
-            <div class="three columns">
-               <h3>All shoes on special</h3>
-
+            <div class="row">
+                <h3>All shoes on special</h3>
+                <p id="slogan">Get them while you can</p>
             </div>
-            <div class="four columns">
-               <form class="Search-form" action="index.html" method="post">
-                  <input type="text"  name="searchShoe">
-                  <input type="submit"class="searchShoe" name="searchShoeBtn">
-               </form>
+            <div class="row">
+                <div class="four columns main-sub">
+                <p>All shoes are second hand</p>
+                </div>
+                <div class="four columns main-sub">
+                <p>There are no refunds for purchase</p>
+                </div>
+                <div class="four columns main-sub">
+                <p>We take any payment method</p>
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
-
-   <div class="container">
-      <div class="row">
-         <div class="four columns main-sub">
-            <p>All shoes are second hand</p>
-         </div>
-         <div class="four columns main-sub">
-            <p>There are no refunds for purchase</p>
-         </div>
-         <div class="four columns main-sub">
-            <p>We take any payment method</p>
-         </div>
       </div>
    </div>
 
@@ -122,20 +118,15 @@
            <div class="row">
                    <div class="four columns">
                            <nav id="primary" class="menu">
-                              <a class="link" href="#">For Business</a>
-                              <a class="link" href="#">Location</a>
-                              <a class="link" href="#">Support</a>
-                           </nav>
-                   </div>
-                   <div class="four columns">
-                           <nav id="secondary" class="menu">
-                              <a class="link" href="#">About Us</a>
-                              <a class="link" href="#">Work with us</a>
-                              <a class="link" href="#">Blog</a>
+                              <a class="link" href="about.html">About Us</a>
+                              <a class="link" href="business.html">For Business</a>
+                              <a class="link" href="location.html">Location</a>
+                              <a class="link" href="support.html">Support</a>
                            </nav>
                    </div>
            </div>
       </div>
+      <p>Copyright &copy; 2018, <em>Siyanda Makhalima</em></p>
    </footer>
 
 </body>

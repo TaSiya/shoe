@@ -4,6 +4,7 @@ var cartTemplate = document.querySelector('.cartTemplate').innerHTML; //template
 var stockTemplate = document.querySelector('.stockTemplate').innerHTML;
 var myStockDisplay = document.querySelector('.myStockDisplay'); //Display current stock
 var displayCart = document.querySelector('.displayCart'); // Display the cart
+var itemsCount = document.querySelector(".itemsCount"); // display the number of items in the cart 
 
 // input references
 var brandAdd = document.querySelector('.brandAdd'); //brand to add
@@ -30,10 +31,9 @@ var templateCompiler = Handlebars.compile(cartTemplate);
 var templateCompilerStock = Handlebars.compile(stockTemplate);
 
 document.addEventListener('DOMContentLoaded', function(){
-
-
    compileCart(shoeApp.inBasket());
    compileMe(shoeApp.stockShoes());
+   itemsCount.innerHTML = shoeApp.cartItems();
 });
 
 function compileMe(listToCompile){

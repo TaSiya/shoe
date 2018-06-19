@@ -142,6 +142,7 @@ function ShoeCatalogue(storedMa, storedBas){
    function getAllShoes(){ return stock_map;}
    function getShoeslength(){ return stock_map.length;}
    function setShoesLength(value){ total_stock = value;}
+   function getBasketLength(){ return basket.length;}
 
                            // Logic funtions
    // Testable functions
@@ -285,7 +286,8 @@ function ShoeCatalogue(storedMa, storedBas){
       makeOrder : order,
       inBasket : basketOrder,
       cancelOrder : orderCancel,
-      cancelAll : clearAll
+      cancelAll : clearAll,
+      cartItems : getBasketLength
    }
 
 }

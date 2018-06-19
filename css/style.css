@@ -17,6 +17,10 @@ body{
 
 }
 
+.course-image{
+  height: 20rem;
+}
+
 header{
   background-image: url(../img/header.jpg);
   background-repeat: no-repeat cover;
@@ -46,7 +50,7 @@ header h1{
 }
 
 .showcase h3{
-  font-size: 25px;
+  font-size: 30px;
   font-style: italic;
   color : var(--dark);
   border-radius: 20px;
@@ -84,19 +88,22 @@ header h1{
   box-shadow: var(--darkShadow);
 }
 
+.price{
+  text-align: left;
+}
 /* All the shoe colours ikn stock */
-.red{ background-color: red; color : var(--white);}
-.blue{ background-color: blue; color : var(--white);}
-.orange { background-color: orange; color : var(--white);}
-.gold {background-color: gold; color : var(--white);}
-.pink { background-color: pink; color : var(--white);}
-.white { background-color: white; color : var(--white);}
-.black { background-color: black; color : var(--white);}
-.purple { background-color: purple; color : var(--white);}
-.yellow { background-color: yellow; color : var(--white);}
-.silver { background-color: silver; color : var(--white);}
-.green { background-color: green; color : var(--white);}
-.crimson { background-color: crimson; color : var(--white);}
+.red{ background-color: red; }
+.blue{ background-color: blue; }
+.orange { background-color: orange; }
+.gold {background-color: gold; }
+.pink { background-color: pink; }
+.white { background-color: white; }
+.black { background-color: black; }
+.purple { background-color: purple; }
+.yellow { background-color: yellow; }
+.silver { background-color: silver; }
+.green { background-color: green; }
+.crimson { background-color: crimson; }
 .grey {background-color: grey}
 
 
@@ -119,26 +126,98 @@ footer p{
 
 }
 
-/* Extra small devices (portrait phones, less than 576px)
-No media query for `xs` since this is the default in Bootstrap */
-
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-
+/* Larger than mobile */
+@media (min-width: 400px) {
 
 }
 
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+  .main{
+    display:grid;
+    grid-template-columns:repeat(1,1fr);
+    grid-gap:2rem;
+  }
 
+  .main-sub{
+    width: 100%;
+  }
+
+  .myStockDisplay{
+    display: grid;
+    grid-template-columns : repeat(2, 1fr);
+    grid-gap : 3rem;
+  }
+  .card{
+    width: 100%;
+  }
 }
 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
+/* Larger than tablet */
+@media (min-width: 750px) {
+  .showcase{
+    padding-top : 5rem;
+    font-family : Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 40rem;
+    position: relative;
+    
+    background-image: url(../img/cover.jpg);
+    background-repeat: cover no-repeat ;
+  }
 
+  .main{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    grid-gap:2rem;
+  }
+
+  .main-sub{
+    width: 100%;
+  }
+
+  .myStockDisplay{
+    display: grid;
+    grid-template-columns : repeat(3, 1fr);
+    grid-gap : 3rem;
+  }
+  .card{
+    width: 100%;
+  }
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
+/* Larger than desktop */
+@media (min-width: 1000px) {
+  .showcase{
+    padding-top : 5rem;
+    font-family : Arial, Helvetica, sans-serif;
+    width: 100%;
+    height: 35rem;
+    position: relative;
+    
+    background-image: url(../img/cover.jpg);
+    background-repeat: cover no-repeat ;
+  }
 
+  .main{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    grid-gap:2rem;
+  }
+
+  .main-sub{
+    width: 100%;
+  }
+
+  .myStockDisplay{
+    display: grid;
+    grid-template-columns : repeat(4, 1fr);
+    grid-gap : 2rem;
+  }
+  .card{
+    width: 100%;
+  }
 }
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}

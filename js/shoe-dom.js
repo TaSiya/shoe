@@ -1,7 +1,8 @@
 // All References for the show Catalogue
 
-var cartTemplate = document.querySelector('.cartTemplate').innerHTML; //template reference
-var stockTemplate = document.querySelector('.stockTemplate').innerHTML;
+var cartTemplate = document.querySelector('.cartTemplate').innerHTML; //cart template
+var stockTemplate = document.querySelector('.stockTemplate').innerHTML; // stock template
+var searchTemplate = document.querySelector('.searchTemplate').innerHTML; // search template
 var myStockDisplay = document.querySelector('.myStockDisplay'); //Display current stock
 var displayCart = document.querySelector('.displayCart'); // Display the cart
 var itemsCount = document.querySelector(".itemsCount"); // display the number of items in the cart 
@@ -34,6 +35,8 @@ document.addEventListener('DOMContentLoaded', function(){
    compileCart(shoeApp.inBasket());
    compileMe(shoeApp.stockShoes());
    itemsCount.innerHTML = shoeApp.cartItems();
+
+
 });
 
 function compileMe(listToCompile){

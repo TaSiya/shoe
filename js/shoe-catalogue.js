@@ -278,7 +278,7 @@ function ShoeCatalogue(storedMa, storedBas){
       inStoredBasket : storedBasket,
       addingStock : addStock,
       stockShoes : getAllShoes,
-      length : getShoeslength,
+      stocklength : getShoeslength,
       totalStock : stockTotal,
       totalPrice : basketTotal,
       searchAll : searchAllShoeBrand,

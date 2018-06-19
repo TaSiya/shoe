@@ -29,8 +29,8 @@
 
       <script type="x-template" class="stockTemplate">
          {{#each stock_map}}
-            <div class="three columns">
-               <div class="card">
+            <div class="card">
+               <div class="cards">
                   <img src="img/{{brand}}.jpg" class="course-image u-full-width">
                   <div class="info-card">
                       <h4>{{brand}}</h4>
@@ -46,6 +46,15 @@
          {{/each}}
       </script>
 
+      <script type="text/x-template" class="searchTemplate">
+        {{#each}}
+            <option value="{{brand}}">
+            <option value="{{colour}}">
+            <option value="{{size}}">
+            <option value="{{stock}}">
+        {{/each}}
+      </script>
+
 
    <title>Shoe Catalogue</title>
 </head>
@@ -53,7 +62,7 @@
    <header id="header" class="header">
        <div class="container">
            <div class="row">
-               <div class="four columns">
+               <div class="eight columns">
                    <h1>Shoe Shop</h1>
                </div>
                <div class="two columns u-pull-right">
@@ -92,18 +101,45 @@
                 <h3>All shoes on special</h3>
                 <p id="slogan">Get them while you can</p>
             </div>
-            <div class="row">
-                <div class="four columns main-sub">
+            <div class="row main">
+                <div class="main-sub">
                 <p>All shoes are second hand</p>
                 </div>
-                <div class="four columns main-sub">
+                <div class="main-sub">
                 <p>There are no refunds for purchase</p>
                 </div>
-                <div class="four columns main-sub">
+                <div class="main-sub">
                 <p>We take any payment method</p>
                 </div>
             </div>
       </div>
+   </div>
+
+   <div class="container">
+       <div class="row">
+           <h3>Searching fields</h3>
+           <form class="myForm">
+                <label>Brand search:<input list="brandSearch" name="brandSearch" /></label>
+                <datalist id="brandSearch">
+                    
+                </datalist>
+                
+                <label>Colour search:<input list="colourSearch" name="colourSearch" /></label>
+                <datalist id="colourSearch">
+                    
+                </datalist>
+
+                <label>Size search:<input list="sizeSearch" name="sizeSearch" /></label>
+                <datalist id="sizeSearch">
+                    
+                </datalist>
+
+                <label>Stock search:<input list="stockSearch" name="stockSearch" /></label>
+                <datalist id="stockSearch">
+                    
+                </datalist>
+           </form>
+       </div>
    </div>
 
    <div class="container" id="shoe-list">

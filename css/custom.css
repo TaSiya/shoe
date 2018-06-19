@@ -66,11 +66,7 @@ ul {
     border: 1px solid #e1e1e1;
     background: white;
 }
-@media (min-width: 550px) {
-    .card {
-        text-align: left;
-    }
-}
+
 .info-card  {
     padding: 10px 20px;
 }

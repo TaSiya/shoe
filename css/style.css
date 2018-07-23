@@ -88,6 +88,11 @@ header h1{
   box-shadow: var(--darkShadow);
 }
 
+.dropSection{
+  display: grid;
+  grid-template-columns: repeat(1 , 1fr);
+}
+
 .price{
   text-align: left;
 }
@@ -151,6 +156,11 @@ footer p{
   .card{
     width: 100%;
   }
+
+  .dropSection{
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+  }
 }
 
 /* Larger than tablet */
@@ -183,6 +193,11 @@ footer p{
   }
   .card{
     width: 100%;
+  }
+
+  .dropSection{
+    display: grid;
+    grid-template-columns: repeat(4 , 1fr);
   }
 }
 

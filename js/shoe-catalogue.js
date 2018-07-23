@@ -122,7 +122,24 @@ function ShoeCatalogue(storedMa, storedBas){
          in_stock : 6
       }
    ];
-   var basket = [];
+   var basket = [
+    {
+        brand : 'vovo',
+        colour : 'gold',
+        size : 3,
+        new_price : 200,
+        old_price : 350,
+        in_stock : 5
+     },
+     {
+        brand : 'china teki',
+        colour : 'yellow',
+        size : 5,
+        new_price : 250,
+        old_price : 450,
+        in_stock : 10
+     }
+   ];
    var globalColour,globalBrand, globalSize, globalIn_stock,total_stock ;
 
    //Accessors and medofiers

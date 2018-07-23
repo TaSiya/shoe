@@ -3,9 +3,10 @@
 var cartTemplate = document.querySelector('.cartTemplate').innerHTML; //cart template
 var stockTemplate = document.querySelector('.stockTemplate').innerHTML; // stock template
 var searchTemplate = document.querySelector('.searchTemplate').innerHTML; // search template
+
 var myStockDisplay = document.querySelector('.myStockDisplay'); //Display current stock
 var displayCart = document.querySelector('.displayCart'); // Display the cart
-var itemsCount = document.querySelector(".itemsCount"); // display the number of items in the cart 
+var itemsCount = document.querySelector(".itemsCount"); // display the number of items in the cart
 
 // input references
 var brandAdd = document.querySelector('.brandAdd'); //brand to add
@@ -15,6 +16,8 @@ var stockAdd = document.querySelector('.stockAdd'); // stock of the brand
 var displayTotal = document.querySelector('.displayTotal'); // Display total in basket
 
 var addToStockBtn = document.querySelector('.addToStockBtn'); //adding the brand to the stock
+var clearCart = document.querySelector('.clearCart'); // clearig the whole cart
+var remove = document.querySelector('.remove'); // remove item from the cart
 
 var brandSearch = document.querySelector('.brandToSearch'); // brand to search
 var colourSearch = document.querySelector('.colourSearch'); // colour of brand to search
@@ -31,15 +34,17 @@ var shoeApp = ShoeCatalogue(storedStock,storedBasket);
 var templateCompiler = Handlebars.compile(cartTemplate);
 var templateCompilerStock = Handlebars.compile(stockTemplate);
 
-document.addEventListener('DOMContentLoaded', function(){
-   compileCart(shoeApp.inBasket());
-   compileMe(shoeApp.stockShoes());
-   itemsCount.innerHTML = shoeApp.cartItems();
+document.addEventListener('DOMContentLoaded', displayScreen);
 
 
-});
 
-function compileMe(listToCompile){
+function displayScreen(){
+  compileCart(shoeApp.inBasket());
+  compileStock(shoeApp.stockShoes());
+  itemsCount.innerHTML = shoeApp.cartItems();
+}
+
+function compileStock(listToCompile){
    var data = {
       stock_map : listToCompile
    }
